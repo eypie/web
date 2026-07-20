@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Terms & Conditions | Prakash Apartments</title>
+  <!-- Google Font: Inter + Hindi Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1a1a2e;
+      --accent: #c9973a;
+      --accent-light: #f0d78c;
+      --gold-gradient: linear-gradient(135deg, #c9973a 0%, #e2b659 50%, #f0d78c 100%);
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a5568;
+      --text-muted: #718096;
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --shadow-gold: 0 10px 30px rgba(201, 151, 58, 0.2);
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Premium Header */
+    .main-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .main-header.scrolled {
+      box-shadow: var(--shadow-md);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-gradient);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-gold);
+      color: white;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-main {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      position: relative;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.premium {
+      background: var(--gold-gradient);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .nav-link.premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(201, 151, 58, 0.3);
+    }
+
+    .nav-link.premium::after {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 101;
+      flex-direction: column;
+      gap: 6px;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Terms Content */
+    .terms-section {
+      padding: 3rem 0 4rem;
+    }
+
+    .terms-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .terms-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(201, 151, 58, 0.1), rgba(240, 215, 140, 0.1));
+      border: 1px solid rgba(201, 151, 58, 0.3);
+      padding: 0.6rem 1.8rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .terms-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    }
+
+    .terms-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    }
+
+    .terms-content {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .terms-intro {
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--border-light);
+      line-height: 1.9;
+    }
+
+    .terms-block {
+      margin-bottom: 2rem;
+    }
+
+    .terms-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-block h2 {
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      letter-spacing: -0.3px;
+      line-height: 1.6;
+    }
+
+    .terms-block h2 .section-number {
+      background: var(--gold-gradient);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .terms-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .terms-block ul li {
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.7rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .terms-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .terms-block ul li strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .terms-footer-note {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border-light);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.7;
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: auto;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-light);
+      padding: 2rem 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 6rem 2rem 2rem;
+        box-shadow: var(--shadow-lg);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 100;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.8rem 0;
+        width: 100%;
+      }
+
+      .nav-link.premium {
+        text-align: center;
+        width: 100%;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+      }
+
+      .overlay.active {
+        display: block;
+      }
+
+      .terms-content {
+        padding: 2rem;
+      }
+
+      .terms-section {
+        padding: 2rem 0 3rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .terms-content {
+        padding: 1.5rem;
+      }
+
+      .terms-block h2 {
+        font-size: 1.15rem;
+      }
+
+      .terms-block ul li {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay for mobile menu -->
+  <div class="overlay" id="overlay"></div>
+
+  <header class="main-header" id="header">
+    <div class="container nav-bar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">✦</div>
+        <div class="logo-text">
+          <span class="logo-main">Prakash</span>
+          <span class="logo-sub">Apartments</span>
+        </div>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="archives.html" class="nav-link">Archives</a>
+        <a href="documents.html" class="nav-link">Documents</a>
+        <a href="additionals.html" class="nav-link premium">Additionals ✦</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="terms-section">
+      <div class="terms-header">
+        <div class="terms-badge">✦ Legal Information</div>
+        <h1 class="terms-title">प्रकाश अपार्टमेंट्स – किरायेदारों के लिए नियम एवं शर्तें</h1>
+        <p class="terms-subtitle">प्रकाश अपार्टमेंट्स में फ्लैट किराये पर लेकर रहने वाले प्रत्येक किरायेदार को निम्नलिखित नियम एवं शर्तों का पालन करना होगा।</p>
+      </div>
+
+      <div class="terms-content">
+        <div class="terms-block">
+          <h2><span class="section-number">1</span> केवल Residential Purpose</h2>
+          <ul>
+            <li>अपार्टमेंट केवल रहने (Residential Purpose) के लिए दिया जाता है।</li>
+            <li>किसी भी प्रकार का Business, Office, Shop, Warehouse या अन्य Commercial Activity अपार्टमेंट के अंदर चलाना सख्त मना है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">2</span> किराया (Rent Payment)</h2>
+          <ul>
+            <li>प्रत्येक माह का किराया अगले महीने शुरू होने से पहले या चल रहे महीने के अंतिम दिन तक जमा कर देना होगा।</li>
+            <li>अगले महीने की शुरुआत के बाद अधिकतम <strong>5 दिनों</strong> की Grace Period दी जाएगी।</li>
+            <li>5 दिन के बाद भी किराया जमा न होने पर <strong>₹200 प्रति दिन</strong> का Late Fine लगाया जाएगा।</li>
+            <li>लगातार किराया जमा न करने की स्थिति में, Rental Agreement तथा लागू कानूनों के अनुसार किरायेदारी समाप्त (Terminate) की जा सकती है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">3</span> शांति बनाए रखें</h2>
+          <ul>
+            <li>सभी किरायेदारों से अपेक्षा की जाती है कि वे अपार्टमेंट में शांति और अच्छा माहौल बनाए रखें।</li>
+            <li>तेज़ आवाज़ में Music बजाना, झगड़ा करना, गाली-गलौज करना, किसी को परेशान करना या ऐसा कोई भी कार्य जिससे अन्य निवासी असुविधा महसूस करें, पूरी तरह प्रतिबंधित है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">4</span> गैर-कानूनी गतिविधियाँ</h2>
+          <ul>
+            <li>अपार्टमेंट या उसके परिसर में किसी भी प्रकार की Illegal Activity सख्त मना है।</li>
+            <li>ऐसी स्थिति में Management संबंधित अधिकारियों को सूचना देने तथा आवश्यक कानूनी कार्रवाई करने का अधिकार रखता है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">5</span> Smoking, Alcohol एवं Drugs</h2>
+          <ul>
+            <li>Common Areas (जैसे सीढ़ियाँ, गलियारे आदि) में Smoking करना मना है।</li>
+            <li>किसी भी प्रकार के Illegal Drugs का उपयोग या रखना पूरी तरह प्रतिबंधित है।</li>
+            <li>Alcohol का सेवन इस प्रकार नहीं होना चाहिए जिससे अन्य निवासियों को परेशानी हो।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">6</span> साफ-सफाई एवं देखभाल</h2>
+          <ul>
+            <li>किरायेदार अपने अपार्टमेंट को साफ़ एवं स्वच्छ रखें।</li>
+            <li>अपार्टमेंट, फर्नीचर (यदि उपलब्ध हो), फिटिंग्स या Common Property को सामान्य उपयोग से अधिक नुकसान पहुँचाने पर उसकी भरपाई किरायेदार को करनी होगी।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">7</span> Visitors</h2>
+          <ul>
+            <li>Visitors का स्वागत है, लेकिन उन्हें भी अपार्टमेंट के नियमों का पालन करना होगा।</li>
+            <li>बिना अनुमति ऐसी Party, Gathering या अन्य कार्यक्रम आयोजित नहीं किए जा सकते जिससे अन्य निवासियों को असुविधा हो।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">8</span> सुरक्षा (Safety)</h2>
+          <ul>
+            <li>सभी किरायेदारों को सुरक्षा संबंधी नियमों का पालन करना होगा।</li>
+            <li>किसी भी प्रकार की ज्वलनशील (Flammable) या खतरनाक सामग्री अपार्टमेंट में रखना मना है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">9</span> Common Areas</h2>
+          <ul>
+            <li>गलियारे, सीढ़ियाँ, पार्किंग तथा अन्य Common Areas को साफ़ रखें।</li>
+            <li>इन स्थानों पर निजी सामान रखकर रास्ता अवरुद्ध न करें।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">10</span> संपत्ति का सम्मान</h2>
+          <ul>
+            <li>अपार्टमेंट, भवन, बिजली-पानी की व्यवस्था या अन्य Common Facilities को जानबूझकर नुकसान पहुँचाने पर मरम्मत का खर्च किरायेदार से लिया जाएगा तथा आवश्यक होने पर कानूनी कार्रवाई भी की जा सकती है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">11</span> किरायेदारी समाप्त करने की सूचना</h2>
+          <ul>
+            <li>यदि किसी कारणवश प्रकाश अपार्टमेंट्स ऑफिस किसी किरायेदार की किरायेदारी समाप्त (Revoke/Terminate) करना उचित समझता है, तो सामान्य परिस्थितियों में <strong>30 दिन पहले लिखित सूचना (Written Notice)</strong> दी जाएगी।</li>
+            <li>लेकिन गंभीर नियम उल्लंघन या लागू कानूनों के अंतर्गत आवश्यक परिस्थितियों में कम समय की Notice भी दी जा सकती है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">12</span> गंभीर नियम उल्लंघन</h2>
+          <ul>
+            <li>लड़ाई-झगड़ा, अन्य निवासियों को धमकाना, बार-बार विवाद करना, संपत्ति को नुकसान पहुँचाना या किसी भी प्रकार की Illegal Activity में शामिल होना गंभीर नियम उल्लंघन माना जाएगा।</li>
+            <li>ऐसी स्थिति में कानूनी कार्रवाई तथा किरायेदारी समाप्त करने की प्रक्रिया शुरू की जा सकती है।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">13</span> नियमों का पालन</h2>
+          <ul>
+            <li>समय-समय पर प्रकाश अपार्टमेंट्स ऑफिस द्वारा जारी किए गए सभी नियमों का पालन करना प्रत्येक किरायेदार के लिए आवश्यक होगा।</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">14</span> नियमों में परिवर्तन</h2>
+          <ul>
+            <li>प्रकाश अपार्टमेंट्स ऑफिस आवश्यकता अनुसार इन नियमों एवं शर्तों में बदलाव करने का अधिकार रखता है। किसी भी नए नियम की जानकारी किरायेदारों को उचित माध्यम से दी जाएगी।</li>
+          </ul>
+        </div>
+
+        <div class="terms-footer-note">
+          <p> अंतिम अपडेट: 20 जुलाई 2026 • ये नियम किरायेदारों को पूर्व सूचना के साथ परिवर्तन के अधीन हैं।</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="copyright">© 2025 Prakash Apartments. Crafted with excellence.</div>
+      <div class="footer-links">
+        <a href="terms-conditions.html">Terms & Conditions</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="contact.html">Contact Concierge</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMobileMenu() {
+      mobileMenuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    overlay.addEventListener('click', toggleMobileMenu);
+
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMobileMenu();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
