@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Terms & Conditions | Prakash Apartments</title>
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1a1a2e;
+      --accent: #c9973a;
+      --accent-light: #f0d78c;
+      --gold-gradient: linear-gradient(135deg, #c9973a 0%, #e2b659 50%, #f0d78c 100%);
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a5568;
+      --text-muted: #718096;
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --shadow-gold: 0 10px 30px rgba(201, 151, 58, 0.2);
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Premium Header */
+    .main-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .main-header.scrolled {
+      box-shadow: var(--shadow-md);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-gradient);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-gold);
+      color: white;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-main {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      position: relative;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-link.premium {
+      background: var(--gold-gradient);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .nav-link.premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(201, 151, 58, 0.3);
+    }
+
+    .nav-link.premium::after {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 101;
+      flex-direction: column;
+      gap: 6px;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Terms Content */
+    .terms-section {
+      padding: 3rem 0 4rem;
+    }
+
+    .terms-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .terms-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(201, 151, 58, 0.1), rgba(240, 215, 140, 0.1));
+      border: 1px solid rgba(201, 151, 58, 0.3);
+      padding: 0.6rem 1.8rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .terms-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .terms-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .terms-content {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .terms-intro {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--border-light);
+      line-height: 1.7;
+    }
+
+    .terms-block {
+      margin-bottom: 2rem;
+    }
+
+    .terms-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-block h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      letter-spacing: -0.3px;
+    }
+
+    .terms-block h2 .section-number {
+      background: var(--gold-gradient);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .terms-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .terms-block ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .terms-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .terms-block ul li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .terms-block p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .terms-footer-note {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border-light);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: auto;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-light);
+      padding: 2rem 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 6rem 2rem 2rem;
+        box-shadow: var(--shadow-lg);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 100;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        padding: 0.8rem 0;
+        width: 100%;
+      }
+
+      .nav-link.premium {
+        text-align: center;
+        width: 100%;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+      }
+
+      .overlay.active {
+        display: block;
+      }
+
+      .terms-content {
+        padding: 2rem;
+      }
+
+      .terms-section {
+        padding: 2rem 0 3rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .terms-content {
+        padding: 1.5rem;
+      }
+
+      .terms-block h2 {
+        font-size: 1.15rem;
+      }
+
+      .terms-block ul li {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay for mobile menu -->
+  <div class="overlay" id="overlay"></div>
+
+  <header class="main-header" id="header">
+    <div class="container nav-bar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">✦</div>
+        <div class="logo-text">
+          <span class="logo-main">Prakash</span>
+          <span class="logo-sub">Apartments</span>
+        </div>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="archives.html" class="nav-link">Archives</a>
+        <a href="documents.html" class="nav-link">Documents</a>
+        <a href="additionals.html" class="nav-link premium">Additionals ✦</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="terms-section">
+      <div class="terms-header">
+        <div class="terms-badge">✦ Legal Information</div>
+        <h1 class="terms-title">Terms & Conditions</h1>
+        <p class="terms-subtitle">For Tenants of Prakash Apartments</p>
+      </div>
+
+      <div class="terms-content">
+        <p class="terms-intro">
+          By renting and occupying an apartment at <strong>Prakash Apartments</strong>, the tenant agrees to comply with the following terms and conditions. These rules are designed to ensure a safe, comfortable, and harmonious living environment for all residents.
+        </p>
+
+        <div class="terms-block">
+          <h2><span class="section-number">1</span> Residential Use Only</h2>
+          <ul>
+            <li>Apartments are strictly for <strong>residential purposes</strong>.</li>
+            <li>Running any business, commercial activity, office, warehouse, or other unauthorized operation from the premises is prohibited.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">2</span> Rent Payment</h2>
+          <ul>
+            <li>Monthly rent must be paid on or before the <strong>last day of the current month</strong> for the upcoming month.</li>
+            <li>A grace period of <strong>5 days</strong> from the beginning of the new month is allowed.</li>
+            <li>If rent remains unpaid after the grace period, a <strong>late fee of ₹100 per day</strong> will be charged until the outstanding amount is cleared.</li>
+            <li>Continued non-payment may result in the initiation of tenancy termination proceedings in accordance with the rental agreement and applicable law.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">3</span> Peaceful Living</h2>
+          <ul>
+            <li>Tenants must maintain a <strong>peaceful and respectful environment</strong>.</li>
+            <li>Loud music, excessive noise, abusive language, harassment, fighting, or any activity that disturbs other residents is strictly prohibited.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">4</span> Illegal Activities</h2>
+          <ul>
+            <li>Any illegal activity within the apartment or apartment premises is strictly prohibited.</li>
+            <li>Such activities may result in <strong>immediate reporting</strong> to the appropriate authorities and legal action.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">5</span> Smoking, Alcohol & Drugs</h2>
+          <ul>
+            <li>Smoking is <strong>not permitted in common areas</strong> of the property.</li>
+            <li>Consumption or possession of <strong>illegal drugs is strictly prohibited</strong> anywhere on the premises.</li>
+            <li>Alcohol consumption must not create disturbance or nuisance to other residents.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">6</span> Cleanliness & Property Care</h2>
+          <ul>
+            <li>Tenants must keep their apartment <strong>clean and hygienic</strong>.</li>
+            <li>Damage to the apartment, furniture (if provided), fixtures, or common property beyond normal wear and tear shall be <strong>repaired or compensated</strong> by the tenant.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">7</span> Visitors</h2>
+          <ul>
+            <li>Visitors are welcome provided they <strong>do not disturb</strong> other residents or violate apartment rules.</li>
+            <li>The apartment shall not be used for unauthorized gatherings or parties that create inconvenience to others.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">8</span> Safety</h2>
+          <ul>
+            <li>Tenants must follow all <strong>safety guidelines</strong> issued by the apartment management.</li>
+            <li>Any hazardous or flammable materials must <strong>not be stored</strong> inside the apartment.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">9</span> Common Areas</h2>
+          <ul>
+            <li>Corridors, staircases, parking areas, rooftops, and other common spaces must be kept <strong>clean and free from obstruction</strong>.</li>
+            <li>Personal belongings should not be left in common areas.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">10</span> Respect for Property</h2>
+          <ul>
+            <li>Any intentional damage to the apartment building, equipment, utilities, or common facilities may invite <strong>legal action and recovery of repair costs</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">11</span> Notice for Vacating</h2>
+          <ul>
+            <li>If the management decides to revoke or terminate a tenancy, <strong>Prakash Apartments Office will ordinarily provide a minimum of 30 days' prior written notice</strong>, except where a shorter notice is permitted under the rental agreement or applicable law due to serious violations.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">12</span> Serious Misconduct</h2>
+          <ul>
+            <li>Fighting, threatening residents, creating repeated disturbances, damaging property, or engaging in illegal activities may result in <strong>immediate disciplinary action, legal proceedings, and termination of tenancy</strong> as permitted by law.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">13</span> Compliance with Rules</h2>
+          <ul>
+            <li>Tenants must comply with all apartment rules communicated by the management from time to time for the safety, cleanliness, and comfort of all residents.</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="section-number">14</span> Amendments</h2>
+          <ul>
+            <li>Prakash Apartments reserves the right to update these Terms & Conditions whenever necessary. Any revised rules will be communicated to tenants and shall apply prospectively.</li>
+          </ul>
+        </div>
+
+        <div class="terms-footer-note">
+          <p>Last updated: July 20, 2026 • These terms are subject to change with prior notice to tenants.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="copyright">© 2026 Prakash Apartments. Crafted with excellence.</div>
+      <div class="footer-links">
+        <a href="terms-conditions.html">Terms & Conditions</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="contact.html">Contact Concierge</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMobileMenu() {
+      mobileMenuBtn.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    overlay.addEventListener('click', toggleMobileMenu);
+
+    // Close mobile menu when a link is clicked
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMobileMenu();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
