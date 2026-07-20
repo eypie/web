@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Apartment No. 1 | Prakash Apartments</title>
+  <!-- Google Font: Inter + Hindi Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --primary: #1a1a2e;
+      --accent: #c9973a;
+      --accent-light: #f0d78c;
+      --gold-gradient: linear-gradient(135deg, #c9973a 0%, #e2b659 50%, #f0d78c 100%);
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a5568;
+      --text-muted: #718096;
+      --border-light: #e2e8f0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --shadow-gold: 0 10px 30px rgba(201, 151, 58, 0.2);
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 1.1rem;
+      width: 100%;
+      position: relative;
+    }
+
+    /* ===== Fade-up entrance (pure CSS, staggered) ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ===== Header ===== */
+    .main-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+    .main-header.scrolled {
+      box-shadow: var(--shadow-md);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    /* thin gold hairline that lives under the header, always on */
+    .main-header::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background: var(--gold-gradient);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .main-header.scrolled::after {
+      opacity: 1;
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+      gap: 1rem;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.88rem;
+      transition: var(--transition);
+      padding: 0.4rem 0.2rem;
+      margin-left: -0.2rem;
+      border-radius: 8px;
+    }
+
+    .back-btn:active {
+      background: var(--bg-secondary);
+    }
+
+    .back-btn:hover {
+      color: var(--accent);
+      gap: 0.5rem;
+    }
+
+    .back-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .logo-small {
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: -0.2px;
+      text-decoration: none;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .logo-small .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(201, 151, 58, 0.14);
+    }
+
+    /* ===== Hero ===== */
+    .apartment-hero {
+      padding: 2.1rem 0 1.3rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--accent-light);
+    }
+
+    .apartment-number {
+      font-size: clamp(2.1rem, 7vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.15;
+    }
+
+    .apartment-type {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 0;
+      letter-spacing: 0.1px;
+    }
+
+    /* ===== Cards (shared) ===== */
+    .facilities-card,
+    .rules-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.3rem;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.4s ease;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      letter-spacing: -0.2px;
+    }
+
+    .section-title .icon-badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, rgba(201, 151, 58, 0.14), rgba(240, 215, 140, 0.16));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== Facilities ===== */
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+
+    .facility-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.75rem 0.85rem;
+      background: var(--bg-secondary);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .facility-item:active {
+      border-color: var(--accent-light);
+      background: #fdf9ef;
+    }
+
+    .facility-item .fi-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .facility-item.parking {
+      grid-column: 1 / -1;
+    }
+
+    /* ===== Action Buttons ===== */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1rem;
+      border-radius: 2.5rem;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      letter-spacing: 0.1px;
+    }
+
+    .btn-payments {
+      background: var(--gold-gradient);
+      color: #2a2210;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-payments:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(201, 151, 58, 0.32);
+    }
+
+    .btn-payments:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(201, 151, 58, 0.28);
+    }
+
+    .btn-call {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 2px solid var(--border-light);
+    }
+
+    .btn-call:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-call:active {
+      background: var(--bg-secondary);
+    }
+
+    .btn .btn-icon {
+      font-size: 1.05rem;
+    }
+
+    /* ===== Rules ===== */
+    .rules-intro {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: -0.4rem 0 1.2rem;
+      line-height: 1.6;
+    }
+
+    .rule-item {
+      position: relative;
+      padding: 1.05rem 0 1.05rem 2.35rem;
+      border-bottom: 1px solid var(--border-light);
+      counter-increment: rule;
+    }
+
+    .rules-card {
+      counter-reset: rule;
+    }
+
+    .rule-item:first-child {
+      padding-top: 0;
+    }
+
+    .rule-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .rule-item::before {
+      content: counter(rule, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 1.05rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rule-item:first-child::before {
+      top: 0;
+    }
+
+    .rule-en {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.55rem;
+    }
+
+    .rule-en strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .rule-hi {
+      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      padding: 0.7rem 0.85rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-light);
+    }
+
+    .rule-hi strong {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      margin-top: auto;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-light);
+      padding: 1.8rem 0 2.2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 2px;
+      background: var(--gold-gradient);
+    }
+
+    .footer .copyright {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.4rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.78rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ===== Small phones ===== */
+    @media (max-width: 360px) {
+      .apartment-number { font-size: 1.85rem; }
+      .facilities-card, .rules-card { padding: 1.25rem 1rem; }
+    }
+
+    /* ===== Tablet and up ===== */
+    @media (min-width: 481px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .facilities-card,
+      .rules-card {
+        padding: 1.9rem 2rem;
+      }
+      .facility-item {
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+      }
+      .rule-en {
+        font-size: 0.93rem;
+      }
+      .rule-hi {
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 2rem;
+      }
+      .apartment-hero {
+        padding-top: 2.6rem;
+      }
+      .facilities-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .facility-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 1.1rem 0.6rem;
+      }
+      .facility-item.parking {
+        grid-column: auto;
+        flex-direction: column;
+      }
+      .action-buttons {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .facilities-card:hover,
+      .rules-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header" id="header">
+    <div class="container nav-bar">
+      <a href="index.html" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </a>
+      <a href="index.html" class="logo-small">
+        <span class="dot"></span> Prakash Apts
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <div class="apartment-hero reveal">
+      <p class="hero-eyebrow">Prakash Apartments</p>
+      <h1 class="apartment-number">Apartment No. 1</h1>
+      <p class="apartment-type">1 BHK — 1 Bedroom, 1 Hall, 1 Bathroom, 1 Kitchen</p>
+    </div>
+
+    <!-- Facilities -->
+    <div class="facilities-card reveal" style="animation-delay: 0.08s;">
+      <h2 class="section-title"><span class="icon-badge">🏠</span> Facilities Provided</h2>
+      <div class="facilities-grid">
+        <div class="facility-item"><span class="fi-icon">🛏️</span> 1 Bedroom</div>
+        <div class="facility-item"><span class="fi-icon">🛋️</span> 1 Hall</div>
+        <div class="facility-item"><span class="fi-icon">🛁</span> 1 Bathroom</div>
+        <div class="facility-item"><span class="fi-icon">🍳</span> 1 Kitchen</div>
+        <div class="facility-item parking"><span class="fi-icon">🚗</span> Parking Facility</div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons reveal" style="animation-delay: 0.14s;">
+      <a href="additionals/view-payments.html" class="btn btn-payments">
+        <span class="btn-icon">💳</span> View Payments
+      </a>
+      <a href="tel:7979701693" class="btn btn-call">
+        <span class="btn-icon">📞</span> Call Us
+      </a>
+    </div>
+
+    <!-- Rules & Regulations -->
+    <div class="rules-card reveal" style="animation-delay: 0.2s;">
+      <h2 class="section-title"><span class="icon-badge">📋</span> Rules & Regulations / नियम एवं शर्तें</h2>
+      <p class="rules-intro">Please read carefully. These rules form part of your rental agreement with Prakash Apartments.</p>
+
+      <div class="rule-item">
+        <p class="rule-en">The apartment is strictly for <strong>residential purposes only</strong>. Running any business, office, shop, warehouse, or any commercial activity inside the apartment is prohibited.</p>
+        <p class="rule-hi"><strong>अपार्टमेंट केवल रहने (Residential Purpose) के लिए है।</strong> अपार्टमेंट के अंदर किसी भी प्रकार का Business, Office, Shop, Warehouse या अन्य Commercial Activity चलाना मना है।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Monthly rent must be paid on or before the last day of the current month. A grace period of <strong>5 days</strong> is allowed from the beginning of the next month.</p>
+        <p class="rule-hi"><strong>प्रत्येक माह का किराया महीने के अंतिम दिन तक जमा करना होगा।</strong> अगले महीने की शुरुआत के बाद अधिकतम 5 दिनों की Grace Period दी जाएगी।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">If the rent is not paid within the grace period, a <strong>late fine of ₹200 per day</strong> will be charged until the dues are cleared. Continued non-payment may lead to termination of tenancy in accordance with the rental agreement and applicable law.</p>
+        <p class="rule-hi"><strong>यदि Grace Period के भीतर किराया जमा नहीं किया जाता है, तो ₹200 प्रतिदिन का Late Fine लगाया जाएगा।</strong> लगातार किराया न देने की स्थिति में, Rental Agreement तथा लागू कानूनों के अनुसार किरायेदारी समाप्त की जा सकती है।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Tenants must maintain peace and respect other residents. Loud music, abusive language, harassment, or any activity causing disturbance is not allowed.</p>
+        <p class="rule-hi"><strong>सभी किरायेदारों से अपेक्षा की जाती है कि वे शांति बनाए रखें और अन्य निवासियों का सम्मान करें।</strong> तेज़ आवाज़ में Music बजाना, गाली-गलौज, किसी को परेशान करना या किसी भी प्रकार की अशांति फैलाना मना है।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Fighting, threatening others, repeated nuisance, or intentionally creating problems within the premises may result in legal action and termination of tenancy.</p>
+        <p class="rule-hi"><strong>लड़ाई-झगड़ा, धमकी देना, बार-बार विवाद करना या परिसर में जानबूझकर समस्या उत्पन्न करना</strong> कानूनी कार्रवाई तथा किरायेदारी समाप्त होने का कारण बन सकता है।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Any illegal activity inside the apartment or within the premises is strictly prohibited and may be reported to the appropriate authorities.</p>
+        <p class="rule-hi"><strong>अपार्टमेंट या परिसर में किसी भी प्रकार की Illegal Activity पूरी तरह प्रतिबंधित है</strong> और आवश्यकता पड़ने पर संबंधित अधिकारियों को इसकी सूचना दी जा सकती है।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Smoking is prohibited in common areas. Consumption or possession of illegal drugs is strictly forbidden. Alcohol consumption must not disturb other residents.</p>
+        <p class="rule-hi"><strong>Common Areas में Smoking करना मना है। Illegal Drugs का उपयोग या रखना पूरी तरह प्रतिबंधित है।</strong> Alcohol का सेवन इस प्रकार न करें जिससे अन्य निवासियों को परेशानी हो।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Tenants must keep the apartment clean and hygienic. Any damage beyond normal wear and tear must be compensated by the tenant.</p>
+        <p class="rule-hi"><strong>किरायेदार अपने अपार्टमेंट को साफ़ एवं स्वच्छ रखें।</strong> सामान्य उपयोग से अधिक हुए किसी भी नुकसान की भरपाई किरायेदार को करनी होगी।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Visitors are welcome but must follow all apartment rules. Parties or gatherings that disturb other residents are not permitted without prior approval.</p>
+        <p class="rule-hi"><strong>Visitors का स्वागत है, लेकिन उन्हें भी अपार्टमेंट के नियमों का पालन करना होगा।</strong> ऐसी Party या Gathering जिससे अन्य निवासियों को असुविधा हो, बिना पूर्व अनुमति आयोजित नहीं की जा सकती।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Corridors, staircases, parking areas, and other common spaces must be kept clean and free from obstruction.</p>
+        <p class="rule-hi"><strong>गलियारे, सीढ़ियाँ, पार्किंग तथा अन्य Common Areas को साफ़ रखें</strong> और वहाँ निजी सामान रखकर रास्ता अवरुद्ध न करें।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Tenants must follow all safety guidelines and must not store hazardous or flammable materials inside the apartment.</p>
+        <p class="rule-hi"><strong>सभी किरायेदारों को सुरक्षा संबंधी नियमों का पालन करना होगा</strong> तथा किसी भी प्रकार की ज्वलनशील (Flammable) या खतरनाक सामग्री अपार्टमेंट में नहीं रखनी होगी।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">If the management decides to terminate a tenancy, <strong>Prakash Apartments Office</strong> will ordinarily provide a <strong>30-day prior written notice</strong>, except where a shorter notice is permitted under the rental agreement or applicable law due to serious violations.</p>
+        <p class="rule-hi"><strong>यदि Management किसी किरायेदार की किरायेदारी समाप्त करना उचित समझता है, तो सामान्य परिस्थितियों में Prakash Apartments Office द्वारा 30 दिन पहले लिखित सूचना दी जाएगी।</strong> गंभीर नियम उल्लंघन या लागू कानूनों के अनुसार आवश्यक होने पर कम समय की Notice भी दी जा सकती है।</p>
+      </div>
+
+      <div class="rule-item">
+        <p class="rule-en">Prakash Apartments reserves the right to update these rules whenever necessary. Tenants will be informed of any changes.</p>
+        <p class="rule-hi"><strong>प्रकाश अपार्टमेंट्स आवश्यकता अनुसार इन नियमों में परिवर्तन करने का अधिकार रखता है।</strong> किसी भी नए नियम की जानकारी किरायेदारों को उचित माध्यम से दी जाएगी।</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="copyright">© 2026 Prakash Apartments. Crafted with excellence.</p>
+      <div class="footer-links">
+        <a href="terms-conditions.html">Terms & Conditions</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
