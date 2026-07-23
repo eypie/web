@@ -2,231 +2,249 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Prakash Apartments | Premium Living</title>
-  <!-- Google Font: Inter -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Prakash Apartments | Luxury Living Experience</title>
+
+  <!-- Preconnect and Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    /* ===== CSS Variables (Light Theme & Inter Font) ===== */
     :root {
       --primary: #1a1a2e;
+      --primary-light: #2a2a48;
       --accent: #c9973a;
       --accent-light: #f0d78c;
+      --accent-dark: #a67928;
       --gold-gradient: linear-gradient(135deg, #c9973a 0%, #e2b659 50%, #f0d78c 100%);
       --bg-primary: #ffffff;
-      --bg-secondary: #f8f9fa;
+      --bg-secondary: #faf8f4;
       --bg-card: #ffffff;
       --text-primary: #1a1a2e;
       --text-secondary: #4a5568;
-      --text-muted: #718096;
-      --border-light: #e2e8f0;
-      --border-medium: #cbd5e0;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
-      --shadow-gold: 0 10px 30px rgba(201, 151, 58, 0.2);
-      --radius-sm: 12px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --text-muted: #8a8f9c;
+      --border-light: #ece7dd;
+      --border-medium: #d8d1c2;
+      --shadow-sm: 0 2px 10px rgba(26, 26, 46, 0.04);
+      --shadow-md: 0 10px 30px rgba(26, 26, 46, 0.08);
+      --shadow-lg: 0 20px 50px rgba(26, 26, 46, 0.14);
+      --shadow-gold: 0 10px 28px rgba(201, 151, 58, 0.25);
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ===== Base Reset ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-primary);
       color: var(--text-primary);
-      line-height: 1.6;
+      line-height: 1.5;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      padding-bottom: 80px; /* Space for sticky mobile action bar */
     }
 
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Accessibility focus indicators */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ===== Mobile-First Layout Container ===== */
     .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
       width: 100%;
-      position: relative;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Premium Header */
+    /* ===== Glassmorphic Header & Nav ===== */
     .main-header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid var(--border-light);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(236, 231, 221, 0.8);
       transition: var(--transition);
-      box-shadow: var(--shadow-sm);
     }
 
     .main-header.scrolled {
-      box-shadow: var(--shadow-md);
-      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow-sm);
     }
 
     .nav-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 0;
-      gap: 2rem;
+      height: 68px;
     }
 
     .logo {
-      font-weight: 800;
-      font-size: 1.8rem;
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      transition: var(--transition);
-      flex-shrink: 0;
-    }
-
-    .logo:hover {
-      transform: translateY(-1px);
+      gap: 0.75rem;
     }
 
     .logo-icon {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       background: var(--gold-gradient);
-      border-radius: var(--radius-sm);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       box-shadow: var(--shadow-gold);
       color: white;
+      flex-shrink: 0;
+    }
+
+    .logo-icon svg {
+      width: 22px;
+      height: 22px;
     }
 
     .logo-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.2;
+      line-height: 1.1;
     }
 
     .logo-main {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 800;
       color: var(--text-primary);
       letter-spacing: -0.5px;
     }
 
     .logo-sub {
-      font-size: 0.7rem;
-      font-weight: 600;
+      font-size: 0.65rem;
+      font-weight: 700;
       color: var(--accent);
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    /* Navigation Links */
+    /* Navigation Drawer (Mobile) */
     .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 82vw;
+      max-width: 320px;
+      height: 100vh;
+      height: 100dvh;
+      background: #ffffff;
       display: flex;
-      gap: 2rem;
-      align-items: center;
-      list-style: none;
+      flex-direction: column;
+      padding: 5.5rem 1.5rem 2.5rem;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-lg);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1001;
+    }
+
+    .nav-links.active {
+      right: 0;
     }
 
     .nav-link {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: var(--transition);
-      font-size: 0.95rem;
-      padding: 0.5rem 0;
-      position: relative;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold-gradient);
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-
-    .nav-link:hover {
-      color: var(--text-primary);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .nav-link.active {
-      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.95rem 1rem;
+      border-radius: var(--radius-sm);
       font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
     }
 
-    .nav-link.active::after {
-      width: 100%;
+    .nav-link svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+    }
+
+    .nav-link:active {
+      transform: scale(0.98);
+      background: var(--border-light);
     }
 
     .nav-link.premium {
       background: var(--gold-gradient);
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      transition: var(--transition);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .nav-link.premium:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(201, 151, 58, 0.3);
-    }
-
-    .nav-link.premium::after {
-      display: none;
-    }
-
-    /* Mobile Menu Button */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
+      color: #ffffff;
       border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      z-index: 101;
-      flex-direction: column;
-      gap: 6px;
-      width: 40px;
-      height: 40px;
+      box-shadow: var(--shadow-gold);
+      margin-top: auto;
       justify-content: center;
+    }
+
+    .nav-link.premium svg {
+      color: #ffffff;
+    }
+
+    /* Mobile Hamburger Menu Button */
+    .mobile-menu-btn {
+      background: transparent;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1002;
     }
 
     .mobile-menu-btn span {
       display: block;
-      width: 24px;
-      height: 2px;
+      width: 22px;
+      height: 2.5px;
       background: var(--text-primary);
-      transition: var(--transition);
       border-radius: 2px;
+      transition: var(--transition);
     }
 
     .mobile-menu-btn.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
+      transform: translateY(7.5px) rotate(45deg);
     }
 
     .mobile-menu-btn.active span:nth-child(2) {
@@ -234,40 +252,64 @@
     }
 
     .mobile-menu-btn.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
+      transform: translateY(-7.5px) rotate(-45deg);
     }
 
-    /* Hero Section */
+    /* Dimmed Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 46, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ===== Hero Section ===== */
     .hero {
-      padding: 4rem 0 3rem;
+      padding: 2.25rem 0 1.5rem;
       text-align: center;
-      position: relative;
     }
 
     .hero-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, rgba(201, 151, 58, 0.1), rgba(240, 215, 140, 0.1));
-      border: 1px solid rgba(201, 151, 58, 0.3);
-      padding: 0.6rem 1.8rem;
-      border-radius: 2rem;
-      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, rgba(201, 151, 58, 0.12), rgba(240, 215, 140, 0.2));
+      border: 1px solid rgba(201, 151, 58, 0.35);
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.2px;
+    }
+
+    .hero-badge svg {
+      width: 15px;
+      height: 15px;
       color: var(--accent);
-      margin-bottom: 2rem;
-      animation: fadeInUp 0.8s ease;
-      font-weight: 500;
     }
 
     .welcome-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.1rem, 9vw, 3.4rem);
       font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 1.2rem;
+      letter-spacing: -1.2px;
+      line-height: 1.12;
+      margin-bottom: 1rem;
       color: var(--text-primary);
-      animation: fadeInUp 0.8s ease 0.2s both;
-      line-height: 1.15;
     }
 
-    .welcome-title .gold-text {
+    .gold-text {
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -275,306 +317,404 @@
     }
 
     .subtitle {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--text-secondary);
-      margin-bottom: 3rem;
-      font-weight: 400;
-      animation: fadeInUp 0.8s ease 0.4s both;
-      max-width: 650px;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 540px;
       margin-left: auto;
       margin-right: auto;
-      line-height: 1.7;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* ===== Facilities Carousel (Mobile Horizontal Snap Scroll) ===== */
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
     }
 
-    /* Facilities Grid */
-    .facilities-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 3rem 0;
-      animation: fadeInUp 0.8s ease 0.6s both;
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-primary);
+    }
+
+    .scroll-hint {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .scroll-hint svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .facilities-carousel {
+      display: flex;
+      gap: 0.9rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide scrollbar for clean UI */
+    }
+
+    .facilities-carousel::-webkit-scrollbar {
+      display: none;
     }
 
     .facility-card {
+      flex: 0 0 78%;
+      max-width: 280px;
+      scroll-snap-align: center;
       background: var(--bg-card);
       border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 2rem 1.5rem;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem;
       text-align: center;
+      box-shadow: var(--shadow-sm);
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       position: relative;
       overflow: hidden;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .facility-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent-light);
-      box-shadow: var(--shadow-lg);
     }
 
     .facility-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
+      top: 0; left: 0; right: 0;
+      height: 3px;
       background: var(--gold-gradient);
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .facility-card:hover::before {
-      transform: scaleX(1);
+      opacity: 0.8;
     }
 
     .facility-icon-wrapper {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 1.2rem;
-      background: linear-gradient(135deg, #fef5e7, #fdf2d9);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fef8ef 0%, #fdf2d9 100%);
+      border: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .facility-icon-wrapper svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .facility-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .facility-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ===== Buttons & CTAs ===== */
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      min-height: 52px;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: var(--shadow-gold);
+      transition: var(--transition);
+    }
+
+    .btn-primary svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+      box-shadow: 0 4px 15px rgba(201, 151, 58, 0.2);
+    }
+
+    /* Sticky Bottom Mobile Bar */
+    .mobile-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-light);
+      padding: 0.75rem 1.25rem;
+      z-index: 900;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ===== Query Modal / Drawer ===== */
+    .query-modal {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-card);
+      border-top-left-radius: var(--radius-lg);
+      border-top-right-radius: var(--radius-lg);
+      padding: 1.75rem 1.25rem 2rem;
+      max-height: 88vh;
+      max-height: 88dvh;
+      overflow-y: auto;
+      z-index: 1002;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .query-modal.active {
+      transform: translateY(0);
+    }
+
+    .drawer-handle {
+      width: 40px;
+      height: 4px;
+      background: var(--border-medium);
+      border-radius: 2px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .modal-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      letter-spacing: -0.4px;
+    }
+
+    .form-title svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+    }
+
+    .close-modal-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      transition: var(--transition);
-      border: 2px solid var(--border-light);
-    }
-
-    .facility-card:hover .facility-icon-wrapper {
-      background: linear-gradient(135deg, #fef5e7, #ffeaa7);
-      transform: scale(1.1) rotate(5deg);
-      border-color: var(--accent-light);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .facility-card h3 {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--text-primary);
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.3px;
-    }
-
-    .facility-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    /* CTA Button */
-    .query-button-wrapper {
-      display: flex;
-      justify-content: center;
-      margin: 3rem 0 2rem;
-      animation: fadeInUp 0.8s ease 0.8s both;
-    }
-
-    .btn-primary {
-      background: var(--gold-gradient);
-      color: white;
-      border: none;
-      padding: 1.1rem 3rem;
-      border-radius: 3rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: -0.2px;
       cursor: pointer;
-      transition: var(--transition);
-      box-shadow: var(--shadow-gold);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      position: relative;
-      overflow: hidden;
+      color: var(--text-secondary);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(201, 151, 58, 0.3);
-    }
-
-    .btn-primary:active {
-      transform: translateY(-1px);
-    }
-
-    /* Query Modal */
-    .query-modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      margin: 2rem 0 3rem;
-      box-shadow: var(--shadow-lg);
-      display: none;
-      animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .query-modal.active {
-      display: block;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .form-title {
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--text-primary);
-      letter-spacing: -0.5px;
-    }
-
-    .form-title span {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .close-modal-btn svg {
+      width: 18px;
+      height: 18px;
     }
 
     .query-form {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
     }
 
     .form-row {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .form-row label {
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 700;
       color: var(--text-primary);
-      letter-spacing: 0.3px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      color: var(--accent);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
     }
 
     .form-row input,
     .form-row select,
     .form-row textarea {
-      padding: 0.9rem 1.2rem;
-      border: 2px solid var(--border-light);
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 2.75rem;
+      border: 1.5px solid var(--border-light);
       border-radius: var(--radius-sm);
-      font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
-      background: var(--bg-secondary);
+      background-color: var(--bg-secondary);
       color: var(--text-primary);
       transition: var(--transition);
-      outline: none;
+      appearance: none;
+    }
+
+    .form-row textarea {
+      padding-left: 1rem;
+      resize: vertical;
+      min-height: 100px;
     }
 
     .form-row input:focus,
     .form-row select:focus,
     .form-row textarea:focus {
       border-color: var(--accent);
-      background: white;
-      box-shadow: 0 0 0 4px rgba(201, 151, 58, 0.1);
-    }
-
-    .form-row input::placeholder,
-    .form-row textarea::placeholder {
-      color: var(--text-muted);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(201, 151, 58, 0.12);
+      outline: none;
     }
 
     .form-row select {
-      cursor: pointer;
-      appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23c9973a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 1.2rem center;
+      background-position: right 1.1rem center;
       padding-right: 2.5rem;
-    }
-
-    .double-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      cursor: pointer;
     }
 
     .submit-btn {
       background: var(--gold-gradient);
-      color: white;
+      color: #ffffff;
       border: none;
-      padding: 1rem 2.5rem;
-      border-radius: 2.5rem;
+      min-height: 52px;
+      padding: 0.95rem 1.5rem;
+      border-radius: var(--radius-full);
       font-weight: 700;
       font-size: 1rem;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: var(--shadow-gold);
       transition: var(--transition);
       margin-top: 0.5rem;
-      justify-self: start;
-      box-shadow: var(--shadow-gold);
-      letter-spacing: 0.3px;
     }
 
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(201, 151, 58, 0.3);
+    .submit-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .submit-btn.loading .spinner {
+      display: block;
+    }
+
+    .submit-btn.loading svg {
+      display: none;
     }
 
     .local-data-note {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      margin-top: 1.2rem;
-      font-style: italic;
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      align-items: flex-start;
+      gap: 0.4rem;
+      line-height: 1.45;
     }
 
-    /* Footer */
+    .local-data-note svg {
+      width: 15px;
+      height: 15px;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* ===== Footer ===== */
     .footer {
-      margin-top: auto;
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-light);
-      padding: 2rem 0;
+      padding: 2.25rem 0 1.5rem;
+      margin-top: auto;
     }
 
     .footer-content {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      text-align: center;
+      gap: 1.25rem;
     }
 
     .footer-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .footer-links a {
       color: var(--text-secondary);
-      text-decoration: none;
+      font-size: 0.85rem;
       font-weight: 500;
       transition: var(--transition);
-      font-size: 0.9rem;
     }
 
     .footer-links a:hover {
@@ -583,342 +723,480 @@
 
     .copyright {
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
-    /* Responsive Design */
-    @media (max-width: 1024px) {
+    /* ===== Progressive Enhancement: Tablet (>= 640px) ===== */
+    @media (min-width: 640px) {
       .container {
-        padding: 0 1.5rem;
-      }
-      
-      .nav-links {
-        gap: 1.5rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .mobile-menu-btn {
-        display: flex;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 300px;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        padding: 6rem 2rem 2rem;
-        box-shadow: var(--shadow-lg);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 100;
-        gap: 1rem;
-        align-items: flex-start;
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .nav-link {
-        font-size: 1.1rem;
-        padding: 0.8rem 0;
-        width: 100%;
-      }
-
-      .nav-link.premium {
-        text-align: center;
-        width: 100%;
-      }
-
-      .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 99;
-      }
-
-      .overlay.active {
-        display: block;
+        padding-left: 2rem;
+        padding-right: 2rem;
       }
 
       .hero {
-        padding: 3rem 0 2rem;
+        padding: 3.5rem 0 2.5rem;
       }
 
-      .double-col {
-        grid-template-columns: 1fr;
-      }
-
-      .query-modal {
-        padding: 2rem;
-      }
-
-      .facilities-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 1rem;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 1rem;
-      }
-
-      .welcome-title {
-        font-size: 2rem;
-      }
-
-      .subtitle {
-        font-size: 1rem;
-      }
-
-      .facilities-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .facilities-carousel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        overflow-x: visible;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       .facility-card {
-        padding: 1.5rem 1rem;
+        max-width: none;
+        flex: auto;
       }
 
-      .btn-primary {
-        padding: 1rem 2rem;
-        font-size: 1rem;
+      .scroll-hint {
+        display: none;
+      }
+
+      .double-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
       }
 
       .query-modal {
-        padding: 1.5rem;
+        position: relative;
+        transform: none;
+        max-height: none;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-light);
+        margin: 2rem auto;
+        max-width: 680px;
+        box-shadow: var(--shadow-md);
+        display: none;
+        padding: 2.25rem;
+      }
+
+      .query-modal.active {
+        display: block;
+        animation: fadeInModal 0.4s ease;
+      }
+
+      @keyframes fadeInModal {
+        from { opacity: 0; transform: translateY(-12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .drawer-handle, .close-modal-btn {
+        display: none;
+      }
+
+      .mobile-bottom-bar {
+        display: none;
+      }
+
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    /* ===== Progressive Enhancement: Desktop (>= 1024px) ===== */
+    @media (min-width: 1024px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .nav-links {
+        position: static;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 1.75rem;
+        max-width: none;
+      }
+
+      .nav-link {
+        background: transparent;
+        border: none;
+        padding: 0.5rem 0.25rem;
+        font-size: 0.95rem;
+        border-radius: 0;
+      }
+
+      .nav-link svg {
+        display: none;
+      }
+
+      .nav-link.premium {
+        padding: 0.65rem 1.6rem;
+        border-radius: var(--radius-full);
+      }
+
+      .facilities-carousel {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.25rem;
+      }
+
+      .facility-card {
+        padding: 1.75rem 1rem;
+      }
+
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Overlay for mobile menu -->
-  <div class="overlay" id="overlay"></div>
 
+  <!-- Backdrop Overlay -->
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <!-- Glassmorphic Main Header -->
   <header class="main-header" id="header">
     <div class="container nav-bar">
-      <a href="#" class="logo">
-        <div class="logo-icon">✦</div>
+      <a href="#" class="logo" aria-label="Prakash Apartments Home">
+        <div class="logo-icon">
+          <!-- Premium Building Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+            <path d="M9 22v-4h6v4"/>
+            <path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/>
+          </svg>
+        </div>
         <div class="logo-text">
           <span class="logo-main">Prakash</span>
           <span class="logo-sub">Apartments</span>
         </div>
       </a>
 
-      <!-- Mobile Menu Button -->
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
 
-      <!-- Navigation Links -->
-      <div class="nav-links" id="navLinks">
-        <a href="archives.html" class="nav-link">Archives</a>
-        <a href="documents.html" class="nav-link">Documents</a>
-        <a href="additionals.html" class="nav-link premium">Additionals ✦</a>
-      </div>
+      <!-- Navigation Drawer / Links -->
+      <nav class="nav-links" id="navLinks">
+        <a href="archives.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/>
+          </svg>
+          Archives
+        </a>
+        <a href="documents.html" class="nav-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Documents
+        </a>
+        <a href="additionals.html" class="nav-link premium">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          Additionals
+        </a>
+      </nav>
     </div>
   </header>
 
+  <!-- Main Content Area -->
   <main class="container">
     <section class="hero">
-      <div class="hero-badge">✦ Premium Living Experience</div>
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        Premium Residential Living
+      </div>
+
       <h1 class="welcome-title">
         Welcome to <span class="gold-text">Prakash</span><br>Apartments
       </h1>
       <p class="subtitle">
-        Enjoy comfortable living with modern amenities and thoughtfully designed spaces.
+        Enjoy modern living with thoughtfully designed residences and premier amenities tailored for your comfort.
       </p>
-      
-      <div class="facilities-grid">
-        <div class="facility-card">
-          <div class="facility-icon-wrapper">🛏️</div>
-          <h3>Single Room</h3>
-          <p>Luxurious solo living</p>
-        </div>
-        <div class="facility-card">
-          <div class="facility-icon-wrapper">🏠</div>
-          <h3>1 BHK</h3>
-          <p>Elegant couple space</p>
-        </div>
-        <div class="facility-card">
-          <div class="facility-icon-wrapper">🏡</div>
-          <h3>2 BHK</h3>
-          <p>Premium family home</p>
-        </div>
-        <div class="facility-card">
-          <div class="facility-icon-wrapper">🚗</div>
-          <h3>Parking</h3>
-          <p>Secure valet space</p>
-        </div>
-        <div class="facility-card">
-          <div class="facility-icon-wrapper">💧</div>
-          <h3>Water Supply</h3>
-          <p>24/7 water supply</p>
-        </div>
-        
+
+      <!-- Section Title for Mobile Carousel -->
+      <div class="section-title-wrap">
+        <h2 class="section-title">Available Accommodations</h2>
+        <span class="scroll-hint">
+          Swipe
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
       </div>
 
-      <div class="query-button-wrapper">
-        <button class="btn-primary" id="toggleQueryBtn">
-          ✦ Send Exclusive Query
+      <!-- Facilities Carousel / Grid -->
+      <div class="facilities-carousel">
+        <div class="facility-card">
+          <div class="facility-icon-wrapper">
+            <!-- Bed Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 4v16M2 8h20v12M2 16h20M6 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </div>
+          <h3>Single Room</h3>
+          <p>Comfortable solo space</p>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-icon-wrapper">
+            <!-- Home Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>1 BHK</h3>
+          <p>Sleek functional layout</p>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-icon-wrapper">
+            <!-- Apartment Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
+            </svg>
+          </div>
+          <h3>2 BHK</h3>
+          <p>Spacious family living</p>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-icon-wrapper">
+            <!-- Parking / Car Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="22" height="13" rx="2"/>
+              <polyline points="4 8 20 8"/>
+              <circle cx="7.5" cy="19.5" r="1.5"/>
+              <circle cx="16.5" cy="19.5" r="1.5"/>
+            </svg>
+          </div>
+          <h3>Parking</h3>
+          <p>Secure reserved bays</p>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-icon-wrapper">
+            <!-- Water Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+            </svg>
+          </div>
+          <h3>Water Supply</h3>
+          <p>24/7 continuous water</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Query Drawer / Modal Form -->
+    <div class="query-modal" id="queryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="drawer-handle"></div>
+      <div class="modal-header-row">
+        <h2 class="form-title" id="modalTitle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          Send Inquiry
+        </h2>
+        <button class="close-modal-btn" id="closeModalBtn" aria-label="Close inquiry form">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
         </button>
       </div>
 
-      <div class="query-modal" id="queryModal">
-        <h2 class="form-title"><span>✦</span> Begin Your Journey</h2>
-        <form class="query-form" id="queryForm">
-          <div class="double-col">
-            <div class="form-row">
-              <label>Full Name *</label>
+      <form class="query-form" id="queryForm" novalidate>
+        <div class="double-col">
+          <div class="form-row">
+            <label for="fullName">Full Name *</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
               <input type="text" id="fullName" placeholder="Enter your full name" required autocomplete="name">
             </div>
-            <div class="form-row">
-              <label>Contact Number *</label>
-              <input type="tel" id="contactNumber" placeholder="Your mobile number" required autocomplete="tel">
+          </div>
+
+          <div class="form-row">
+            <label for="contactNumber">Contact Number *</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <input type="tel" id="contactNumber" placeholder="Your mobile number" required autocomplete="tel" inputmode="tel">
             </div>
           </div>
-          <div class="form-row">
-            <label>WhatsApp Contact</label>
-            <input type="text" id="whatsappContact" placeholder="WhatsApp number (if different)">
+        </div>
+
+        <div class="form-row">
+          <label for="whatsappContact">WhatsApp Contact</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            <input type="tel" id="whatsappContact" placeholder="WhatsApp number (if different)" inputmode="tel">
           </div>
-          <div class="form-row">
-            <label>Preferred Apartment *</label>
+        </div>
+
+        <div class="form-row">
+          <label for="apartmentType">Preferred Residence *</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
             <select id="apartmentType" required>
-              <option value="" disabled selected>— Select your preference —</option>
-              <option value="Single Room">✦ Single Room</option>
-              <option value="1 BHK">✦ 1 BHK</option>
-              <option value="2 BHK">✦ 2 BHK</option>
-              <option value="Parking Inquiry">✦ Parking Inquiry</option>
-              <option value="Other">✦ Other</option>
+              <option value="" disabled selected>Select preference</option>
+              <option value="Single Room">Single Room</option>
+              <option value="1 BHK">1 BHK</option>
+              <option value="2 BHK">2 BHK</option>
+              <option value="Parking Inquiry">Parking Inquiry</option>
+              <option value="Other">Other</option>
             </select>
           </div>
-          <div class="form-row">
-            <label>Your Message</label>
-            <textarea id="queryMessage" rows="4" placeholder="Tell us about your requirements..."></textarea>
-          </div>
-          <p class="local-data-note">After clicking the Submit button, please wait a few seconds. Your query will be submitted automatically.</p>
-          <button type="submit" class="submit-btn">✦ Submit & Save</button>
-          <p class="local-data-note"> Your query will be securely saved. We will only contact you if necessary.</p>
-        </form>
-      </div>
-    </section>
+        </div>
+
+        <div class="form-row">
+          <label for="queryMessage">Additional Requirements</label>
+          <textarea id="queryMessage" rows="3" placeholder="Tell us about your requirements..."></textarea>
+        </div>
+
+        <p class="local-data-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          Please wait a few seconds after submitting for confirmation.
+        </p>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="spinner"></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          <span class="btn-text">Submit Inquiry</span>
+        </button>
+
+        <p class="local-data-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          Your information is kept confidential and only used to answer your request.
+        </p>
+      </form>
+    </div>
   </main>
 
+  <!-- Sticky Mobile Action Bar -->
+  <div class="mobile-bottom-bar">
+    <button class="btn-primary" id="toggleQueryBtnMobile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+      Send Exclusive Inquiry
+    </button>
+  </div>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-content">
-      <div class="copyright">© 2026 Prakash Apartments. Crafted with excellence.</div>
+      <div class="copyright">© 2026 Prakash Apartments. All rights reserved.</div>
       <div class="footer-links">
-        <a href="terms-conditions.html">Terms & Conditions</a>
+        <a href="terms-conditions.html">Terms &amp; Conditions</a>
         <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="contact.html">Contact Concierge</a>
+        <a href="contact.html">Concierge</a>
       </div>
     </div>
   </footer>
 
+  <!-- JavaScript Implementation -->
   <script>
     (function() {
+      'use strict';
+
       const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxL1MUjsTRaX4QBbHbjmLtRxuiFqYVxrjqahlWrsVVZCrDJlEQWt4oksXiWjWlBhtw/exec";
-      
-      const toggleBtn = document.getElementById('toggleQueryBtn');
-      const queryModal = document.getElementById('queryModal');
-      const queryForm = document.getElementById('queryForm');
+
       const header = document.getElementById('header');
       const mobileMenuBtn = document.getElementById('mobileMenuBtn');
       const navLinks = document.getElementById('navLinks');
       const overlay = document.getElementById('overlay');
-      
-      const STORAGE_KEY = 'prakash_apartments_queries';
+      const toggleQueryBtnMobile = document.getElementById('toggleQueryBtnMobile');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const queryModal = document.getElementById('queryModal');
+      const queryForm = document.getElementById('queryForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = submitBtn.querySelector('.btn-text');
 
-      // Header scroll effect
+      // Header elevation on scroll
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      });
+        header.classList.toggle('scrolled', window.scrollY > 15);
+      }, { passive: true });
 
-      // Mobile menu toggle
-      function toggleMobileMenu() {
-        mobileMenuBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+      // Toggle Navigation Drawer
+      function toggleNavigation() {
+        const isActive = navLinks.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active', isActive);
+        overlay.classList.toggle('active', isActive);
+        mobileMenuBtn.setAttribute('aria-expanded', String(isActive));
+        document.body.style.overflow = isActive ? 'hidden' : '';
       }
 
-      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-      overlay.addEventListener('click', toggleMobileMenu);
+      // Toggle Inquiry Modal Drawer
+      function openInquiryModal() {
+        queryModal.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
 
-      // Close mobile menu when a link is clicked
+      function closeInquiryModal() {
+        queryModal.classList.remove('active');
+        if (!navLinks.classList.contains('active')) {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      // Event Listeners
+      mobileMenuBtn.addEventListener('click', toggleNavigation);
+      toggleQueryBtnMobile.addEventListener('click', openInquiryModal);
+      closeModalBtn.addEventListener('click', closeInquiryModal);
+
+      overlay.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) toggleNavigation();
+        if (queryModal.classList.contains('active')) closeInquiryModal();
+      });
+
       navLinks.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-          if (navLinks.classList.contains('active')) {
-            toggleMobileMenu();
-          }
+          if (navLinks.classList.contains('active')) toggleNavigation();
         });
       });
 
-      // Toggle query section
-      toggleBtn.addEventListener('click', function() {
-        queryModal.classList.toggle('active');
-        if (queryModal.classList.contains('active')) {
-          queryModal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      });
-
-      function saveQueryToLocalStorage(queryData) {
-        try {
-          const existing = localStorage.getItem(STORAGE_KEY);
-          let queries = existing ? JSON.parse(existing) : [];
-          queryData.id = Date.now() + '-' + Math.random().toString(36).substr(2, 6);
-          queryData.savedAt = new Date().toISOString();
-          queries.push(queryData);
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(queries));
-          console.log('Query saved.', queryData);
-        } catch (e) {
-          console.warn('localStorage save failed', e);
-        }
-      }
-
+      // Handle Google Sheet Submission
       async function sendToGoogleSheet(formData) {
         try {
-          const response = await fetch(GOOGLE_SCRIPT_URL, {
+          await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
           });
-          console.log('Google Sheet submission attempted', formData);
           return true;
         } catch (error) {
-          console.error('Submission error', error);
+          console.error('Submission error:', error);
           return false;
         }
       }
 
+      // Form Submit Handler
       queryForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
+
         const fullName = document.getElementById('fullName').value.trim();
         const contactNumber = document.getElementById('contactNumber').value.trim();
         const whatsappContact = document.getElementById('whatsappContact').value.trim();
@@ -926,7 +1204,7 @@
         const queryMessage = document.getElementById('queryMessage').value.trim();
 
         if (!fullName || !contactNumber || !apartmentType) {
-          alert('Please fill in all required fields.');
+          alert('Please fill in all required fields marked with an asterisk (*).');
           return;
         }
 
@@ -938,25 +1216,26 @@
           query: queryMessage || 'No additional message',
         };
 
-        saveQueryToLocalStorage(queryData);
+        // Set Loading State
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+        btnText.textContent = 'Submitting...';
+
         const success = await sendToGoogleSheet(queryData);
-        
+
+        // Reset Loading State
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        btnText.textContent = 'Submit Inquiry';
+
         if (success) {
-          alert('Thank you! Your exclusive query has been submitted. We may contact you, if needed.');
+          alert('Thank you! Your inquiry has been submitted. Our concierge team will reach out to you shortly.');
           queryForm.reset();
-          queryModal.classList.remove('active');
+          closeInquiryModal();
         } else {
-          alert('Network issue prevented submission. TRY AGAIN!');
+          alert('A network error occurred. Please check your connection and try again.');
         }
       });
-
-      function logLocalQueries() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-          console.log('Your saved queries:', JSON.parse(stored));
-        }
-      }
-      logLocalQueries();
     })();
   </script>
 </body>
