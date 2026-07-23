@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <!-- Fixed Viewport: Prevents zoom out and maintains strict mobile sizing -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Prakash Apartments | Luxury Living Experience</title>
 
   <!-- Preconnect and Google Fonts -->
@@ -61,7 +62,7 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      padding-bottom: 80px; /* Space for sticky mobile action bar */
+      /* Removed bottom padding since the sticky bar is gone */
     }
 
     button, input, select, textarea {
@@ -74,7 +75,6 @@
       color: inherit;
     }
 
-    /* Accessibility focus indicators */
     :focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
@@ -87,6 +87,7 @@
       padding-right: 1.25rem;
       margin-left: auto;
       margin-right: auto;
+      max-width: 600px; /* Constraints for extra wide tablets mimicking mobile */
     }
 
     /* ===== Glassmorphic Header & Nav ===== */
@@ -277,6 +278,9 @@
     .hero {
       padding: 2.25rem 0 1.5rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .hero-badge {
@@ -322,8 +326,38 @@
       line-height: 1.6;
       margin-bottom: 1.75rem;
       max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
+    }
+
+    /* Centered Button Styling */
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: #ffffff;
+      border: none;
+      width: 90%;
+      max-width: 320px;
+      min-height: 52px;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: var(--shadow-gold);
+      transition: var(--transition);
+      margin: 0 auto 2.5rem; /* Centered in content layout */
+    }
+
+    .btn-primary svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+      box-shadow: 0 4px 15px rgba(201, 151, 58, 0.2);
     }
 
     /* ===== Facilities Carousel (Mobile Horizontal Snap Scroll) ===== */
@@ -332,6 +366,7 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 1rem;
+      width: 100%;
     }
 
     .section-title {
@@ -365,8 +400,9 @@
       margin-right: -1.25rem;
       padding-left: 1.25rem;
       padding-right: 1.25rem;
+      width: calc(100% + 2.5rem);
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Hide scrollbar for clean UI */
+      scrollbar-width: none; 
     }
 
     .facilities-carousel::-webkit-scrollbar {
@@ -430,51 +466,6 @@
       font-size: 0.82rem;
       color: var(--text-muted);
       line-height: 1.4;
-    }
-
-    /* ===== Buttons & CTAs ===== */
-    .btn-primary {
-      background: var(--gold-gradient);
-      color: #ffffff;
-      border: none;
-      width: 100%;
-      min-height: 52px;
-      padding: 0.85rem 1.75rem;
-      border-radius: var(--radius-full);
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      box-shadow: var(--shadow-gold);
-      transition: var(--transition);
-    }
-
-    .btn-primary svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .btn-primary:active {
-      transform: scale(0.98);
-      box-shadow: 0 4px 15px rgba(201, 151, 58, 0.2);
-    }
-
-    /* Sticky Bottom Mobile Bar */
-    .mobile-bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-top: 1px solid var(--border-light);
-      padding: 0.75rem 1.25rem;
-      z-index: 900;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
     }
 
     /* ===== Query Modal / Drawer ===== */
@@ -725,129 +716,6 @@
       color: var(--text-muted);
       font-size: 0.8rem;
     }
-
-    /* ===== Progressive Enhancement: Tablet (>= 640px) ===== */
-    @media (min-width: 640px) {
-      .container {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
-
-      .hero {
-        padding: 3.5rem 0 2.5rem;
-      }
-
-      .facilities-carousel {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
-        overflow-x: visible;
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .facility-card {
-        max-width: none;
-        flex: auto;
-      }
-
-      .scroll-hint {
-        display: none;
-      }
-
-      .double-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.25rem;
-      }
-
-      .query-modal {
-        position: relative;
-        transform: none;
-        max-height: none;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border-light);
-        margin: 2rem auto;
-        max-width: 680px;
-        box-shadow: var(--shadow-md);
-        display: none;
-        padding: 2.25rem;
-      }
-
-      .query-modal.active {
-        display: block;
-        animation: fadeInModal 0.4s ease;
-      }
-
-      @keyframes fadeInModal {
-        from { opacity: 0; transform: translateY(-12px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      .drawer-handle, .close-modal-btn {
-        display: none;
-      }
-
-      .mobile-bottom-bar {
-        display: none;
-      }
-
-      body {
-        padding-bottom: 0;
-      }
-    }
-
-    /* ===== Progressive Enhancement: Desktop (>= 1024px) ===== */
-    @media (min-width: 1024px) {
-      .mobile-menu-btn {
-        display: none;
-      }
-
-      .nav-links {
-        position: static;
-        width: auto;
-        height: auto;
-        background: transparent;
-        box-shadow: none;
-        flex-direction: row;
-        padding: 0;
-        gap: 1.75rem;
-        max-width: none;
-      }
-
-      .nav-link {
-        background: transparent;
-        border: none;
-        padding: 0.5rem 0.25rem;
-        font-size: 0.95rem;
-        border-radius: 0;
-      }
-
-      .nav-link svg {
-        display: none;
-      }
-
-      .nav-link.premium {
-        padding: 0.65rem 1.6rem;
-        border-radius: var(--radius-full);
-      }
-
-      .facilities-carousel {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1.25rem;
-      }
-
-      .facility-card {
-        padding: 1.75rem 1rem;
-      }
-
-      .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
   </style>
 </head>
 <body>
@@ -921,6 +789,14 @@
       <p class="subtitle">
         Enjoy modern living with thoughtfully designed residences and premier amenities tailored for your comfort.
       </p>
+
+      <!-- Centered CTA button integrated directly into the page flow -->
+      <button class="btn-primary" id="toggleQueryBtnMobile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        Send Exclusive Inquiry
+      </button>
 
       <!-- Section Title for Mobile Carousel -->
       <div class="section-title-wrap">
@@ -1091,16 +967,6 @@
       </form>
     </div>
   </main>
-
-  <!-- Sticky Mobile Action Bar -->
-  <div class="mobile-bottom-bar">
-    <button class="btn-primary" id="toggleQueryBtnMobile">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-      </svg>
-      Send Exclusive Inquiry
-    </button>
-  </div>
 
   <!-- Footer -->
   <footer class="footer">
