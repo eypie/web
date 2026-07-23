@@ -638,28 +638,32 @@
   <form id="inquiryForm">
     <div class="form-group">
       <label>Full Name</label>
-      <input type="text" id="fullName" class="form-control" placeholder="John Doe" required>
+      <input type="text" name="name" required placeholder="Full Name">
     </div>
     
     <div class="form-group">
       <label>Mobile Number</label>
-      <input type="tel" id="contactNumber" class="form-control" placeholder="1234567890" required>
+      <input type="tel" name="contact" required placeholder="Contact Number">
+    </div>
+
+    <div class="form-group">
+      <label>WhatsApp Number (Optional)</label>
+      <input type="tel" name="whatsapp" placeholder="WhatsApp Number">
     </div>
 
     <div class="form-group">
       <label>Interested In</label>
-      <select id="apartmentType" class="form-control" required>
-        <option value="" disabled selected>Select an option</option>
-        <option value="Single Room">Single Room</option>
+      <select name="apartment">
         <option value="1 BHK">1 BHK</option>
         <option value="2 BHK">2 BHK</option>
-        <option value="Parking Only">General Inquiry</option>
+        <option value="Single Room">Single Room</option>
+        <option value="General Purpose">General Purpose/other</option>
       </select>
     </div>
 
     <div class="form-group">
       <label>Message (Optional)</label>
-      <textarea id="queryMessage" class="form-control" placeholder="Any specific requirements?"></textarea>
+      <textarea name="query" placeholder="Your Query"></textarea>
     </div>
 
     <button type="submit" class="btn-submit" id="submitBtn">Submit Request</button>
@@ -697,7 +701,6 @@
   closeSheetBtn.addEventListener('click', closeAll);
   overlay.addEventListener('click', closeAll);
 
-  // Your Google Apps Script Web App URL
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxL1MUjsTRaX4QBbHbjmLtRxuiFqYVxrjqahlWrsVVZCrDJlEQWt4oksXiWjWlBhtw/exec';
   const form = document.getElementById('inquiryForm');
 
@@ -706,12 +709,7 @@
     
     const btn = document.getElementById('submitBtn');
     
-    // UI Loading State
-    btn.textContent = 'Sending...';
-    btn.style.opacity = '0.7';
-    btn.disabled = true;
-
-    // Package form inputs into the JSON structure your Apps Script expects
+    // Gather and map form inputs
     const payload = {
       name: form.querySelector('[name="name"]')?.value || '',
       contact: form.querySelector('[name="contact"]')?.value || '',
@@ -720,18 +718,22 @@
       query: form.querySelector('[name="query"]')?.value || ''
     };
 
-    // Send data as JSON using fetch
+    // DEBUG: Check your browser console (F12) to see if these values are empty or filled
+    console.log("Payload being sent:", payload);
+
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+    btn.disabled = true;
+
     fetch(scriptURL, { 
       method: 'POST',
-      mode: 'no-cors', // Required for Google Apps Script Web App redirects
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload)
     })
     .then(() => {
-      // Due to 'no-cors' mode, we won't read the JSON response directly, 
-      // but a successful fetch means it reached the endpoint.
       alert('Thank you! Your inquiry has been sent to our concierge.');
       form.reset();
       closeAll();
@@ -741,7 +743,6 @@
       alert('Oops! Something went wrong while submitting. Please try again.');
     })
     .finally(() => {
-      // Reset UI State
       btn.textContent = 'Submit Request';
       btn.style.opacity = '1';
       btn.disabled = false;
