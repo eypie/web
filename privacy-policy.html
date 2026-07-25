@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Privacy Policy | Prakash Apartments</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Theme Variables ===== */
+    :root {
+      --primary: #1a1a2e;
+      --accent: #c9973a;
+      --accent-dark: #a67928;
+      --gold-gradient: linear-gradient(135deg, #c9973a 0%, #e2b659 50%, #f0d78c 100%);
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4a5568;
+      --border-light: #eaeaea;
+      --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.04);
+      --shadow-modal: 0 -10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-gold: 0 8px 24px rgba(201, 151, 58, 0.25);
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 99px;
+      --transition: all 0.25s ease;
+    }
+
+    /* ===== Mobile Reset ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100vw;
+      overflow-x: hidden;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+    }
+
+    .app-container {
+      max-width: 500px; 
+      margin: 0 auto;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-primary);
+      position: relative;
+    }
+
+    /* ===== Header ===== */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem;
+      background: var(--bg-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--gold-gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .logo-text {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .menu-btn span {
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .menu-btn span:nth-child(1) { width: 24px; }
+    .menu-btn span:nth-child(2) { width: 18px; }
+    .menu-btn span:nth-child(3) { width: 24px; }
+
+    /* ===== Main Content Area ===== */
+    .app-content {
+      padding: 1.5rem 1.25rem;
+      flex-grow: 1;
+    }
+
+    .terms-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .terms-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201, 151, 58, 0.1);
+      border: 1px solid rgba(201, 151, 58, 0.3);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .terms-title {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .terms-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== Terms Content Styling ===== */
+    .terms-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .terms-intro {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-light);
+      line-height: 1.6;
+    }
+
+    .terms-intro strong {
+      color: var(--text-primary);
+    }
+
+    .terms-block {
+      margin-bottom: 1.75rem;
+    }
+
+    .terms-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-block h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.3;
+    }
+
+    .terms-block p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-number {
+      background: var(--gold-gradient);
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .terms-block ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .terms-block ul li {
+      position: relative;
+      padding-left: 1.25rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      font-size: 0.88rem;
+    }
+
+    .terms-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0.25rem;
+      top: 0.6rem;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .terms-block ul li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    
+    /* Contact List Reset */
+    .contact-list li::before {
+      display: none !important;
+    }
+    .contact-list li {
+      padding-left: 0 !important;
+      margin-bottom: 0.3rem !important;
+    }
+    .contact-link {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .terms-footer-note {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed var(--border-light);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-style: italic;
+    }
+
+    /* ===== Footer Section ===== */
+    .app-footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-light);
+      padding: 2rem 1.25rem 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .footer-section-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-contact-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .footer-legal-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .legal-link:last-child {
+      border-bottom: none;
+    }
+
+    .legal-link svg {
+      color: var(--text-secondary);
+    }
+
+    .footer-bottom-text {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+    }
+
+    /* ===== Drawer Navigation ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 200;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 280px;
+      background: var(--bg-card);
+      z-index: 300;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      padding: 5rem 1.5rem 2rem;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.05);
+    }
+
+    .nav-menu.active {
+      transform: translateX(0);
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 12px;
+      color: var(--text-primary);
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 8px;
+      background: var(--bg-secondary);
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- Header -->
+  <header class="app-header">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">Prakash</div>
+        <div class="logo-sub">Apartments</div>
+      </div>
+    </a>
+    <button class="menu-btn" id="openMenuBtn" aria-label="Toggle Navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Content -->
+  <main class="app-content">
+    
+    <div class="terms-header">
+      <div class="terms-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Data Security
+      </div>
+      <h1 class="terms-title">Privacy Policy</h1>
+      <p class="terms-subtitle">Effective Date: July 2026</p>
+    </div>
+
+    <div class="terms-card">
+      <p class="terms-intro">
+        <strong>Prakash Apartments</strong> ("we", "our", or "us") values your privacy and is committed to protecting your personal information. This Privacy Policy explains what information we collect, how we use it, and how we protect it when you visit our website or use our services.
+        <br><br>
+        By using this website, you agree to the practices described in this Privacy Policy.
+      </p>
+
+      <div class="terms-block">
+        <h2><span class="section-number">1</span> Information We Collect</h2>
+        <p>We may collect the following information when you voluntarily provide it through our website:</p>
+        <ul>
+          <li><strong>Full Name</strong></li>
+          <li><strong>Phone Number</strong></li>
+          <li><strong>Email Address</strong></li>
+          <li><strong>Apartment or Room Number</strong> (if applicable)</li>
+          <li>Feedback, complaints, maintenance requests, or other messages submitted through our forms</li>
+          <li>Any other information you choose to provide</li>
+        </ul>
+        <p style="margin-top: 1rem;">We may also automatically collect limited technical information such as:</p>
+        <ul>
+          <li><strong>IP Address</strong></li>
+          <li><strong>Browser Type</strong></li>
+          <li><strong>Device Type</strong></li>
+          <li><strong>Operating System</strong></li>
+          <li><strong>Date and Time of Visit</strong></li>
+          <li><strong>Pages Visited</strong></li>
+          <li><strong>General Website Usage Information</strong></li>
+        </ul>
+        <p style="margin-top: 1rem;">This information helps us improve our website and maintain its security.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">2</span> How We Use Your Information</h2>
+        <p>Your information may be used for the following purposes:</p>
+        <ul>
+          <li>To respond to your enquiries and requests.</li>
+          <li>To process maintenance requests and tenant feedback.</li>
+          <li>To communicate important notices regarding the apartment.</li>
+          <li>To improve our services and website.</li>
+          <li>To maintain apartment management records.</li>
+          <li>To protect the safety and security of residents.</li>
+          <li>To comply with applicable laws and legal obligations.</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">3</span> Information Sharing</h2>
+        <p>We respect your privacy. We do not sell, rent, or trade your personal information to third parties. Your information may only be shared:</p>
+        <ul>
+          <li>when required by applicable law;</li>
+          <li>with government or law enforcement authorities when legally required;</li>
+          <li>to protect the rights, property, or safety of Prakash Apartments, its residents, or others.</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">4</span> Data Security</h2>
+        <p>We take reasonable administrative and technical measures to protect the information collected through this website from unauthorized access, misuse, alteration, or disclosure.</p>
+        <p>However, no method of internet transmission or electronic storage is completely secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">5</span> Cookies</h2>
+        <p>This website may use basic browser cookies or similar technologies necessary for normal website functionality.</p>
+        <p>We do not use cookies for advertising or behavioural tracking.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">6</span> Third-Party Services</h2>
+        <p>Our website may use third-party services to provide certain features or improve functionality. These services may have their own privacy policies. Examples may include:</p>
+        <ul>
+          <li><strong>GitHub Pages</strong> (Website Hosting)</li>
+          <li><strong>Google Forms</strong> (Feedback Forms)</li>
+          <li><strong>Google Maps</strong></li>
+          <li><strong>Google Fonts</strong></li>
+        </ul>
+        <p style="margin-top: 1rem;">We encourage users to review the privacy policies of these third-party services where applicable.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">7</span> Data Retention</h2>
+        <p>Personal information will be retained only for as long as necessary to:</p>
+        <ul>
+          <li>provide apartment-related services;</li>
+          <li>maintain tenant records;</li>
+          <li>resolve disputes;</li>
+          <li>comply with legal requirements.</li>
+        </ul>
+        <p style="margin-top: 1rem;">When information is no longer required, it may be securely deleted.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">8</span> User Rights</h2>
+        <p>Subject to applicable law, you may request to:</p>
+        <ul>
+          <li>access your personal information;</li>
+          <li>correct inaccurate information;</li>
+          <li>update your information;</li>
+          <li>request deletion of your personal information where legally permitted.</li>
+        </ul>
+        <p style="margin-top: 1rem;">Requests may be made using the contact details provided below.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">9</span> Children's Privacy</h2>
+        <p>This website is not intended for children under the age of 13. We do not knowingly collect personal information from children.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">10</span> External Links</h2>
+        <p>Our website may contain links to external websites for your convenience.</p>
+        <p>We are not responsible for the privacy practices or content of third-party websites. Users should review the privacy policies of any external websites they visit.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">11</span> Changes to this Privacy Policy</h2>
+        <p>Prakash Apartments reserves the right to update or modify this Privacy Policy at any time. Any changes will become effective once they are published on this page.</p>
+        <p>We encourage users to review this page periodically.</p>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">12</span> Contact Us</h2>
+        <p>If you have any questions regarding this Privacy Policy or the handling of your personal information, please contact us:</p>
+        <ul class="contact-list">
+          <li><strong>Prakash Apartments</strong></li>
+          <li>📞 Phone: <a href="tel:+917979701693" class="contact-link">+91 7979701693</a></li>
+          <li>📧 Email: <a href="mailto:eypie.me@gmail.com" class="contact-link">eypie.me@gmail.com</a></li>
+          <li style="line-height: 1.5; margin-top: 0.3rem !important;">📍 Address: Nauwataand, Near Natraj Nagar, Barkagaon Daily Market, Barkagaon, Hazaribagh – 825311</li>
+        </ul>
+      </div>
+
+      <div class="terms-footer-note">
+        Last Updated: July 2026
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Complete Footer -->
+  <footer class="app-footer">
+    
+    <!-- Contact Information -->
+    <div class="footer-section-title">Contact Us</div>
+    <div class="footer-contact-block">
+      <a href="tel:+917979701693" class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 7979701693
+      </a>
+      <a href="mailto:eypie.me@gmail.com" class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        eypie.me@gmail.com
+      </a>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nauwataand, Near Natraj Nagar, Barkagaon Daily Market, Barkagaon, Hazaribagh - 825311
+      </div>
+    </div>
+
+    <!-- Legal Links -->
+    <div class="footer-section-title">Policies & Terms</div>
+    <div class="footer-legal-block">
+      <a href="terms-conditions.html" class="legal-link">
+        Terms and Conditions
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="privacy-policy.html" class="legal-link">
+        Privacy Policy
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="feedback-form.html" class="legal-link">
+        Feedback Form
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom-text">
+      © 2026 Prakash Apartments. All rights reserved.
+    </div>
+
+  </footer>
+
+</div>
+
+<!-- Navigation Menu & Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<nav class="nav-menu" id="navMenu">
+  <a href="index.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Home
+  </a>
+  <a href="archives.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></svg>
+    Archives
+  </a>
+  <a href="documents.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+    Documents
+  </a>
+  <a href="additionals.html" class="nav-item" style="background: var(--gold-gradient); color: white;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Additionals
+  </a>
+</nav>
+
+<script>
+  const overlay = document.getElementById('overlay');
+  const navMenu = document.getElementById('navMenu');
+  const openMenuBtn = document.getElementById('openMenuBtn');
+
+  function openNav() {
+    overlay.classList.add('active');
+    navMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    overlay.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openMenuBtn.addEventListener('click', openNav);
+  overlay.addEventListener('click', closeNav);
+</script>
+</body>
+</html>
