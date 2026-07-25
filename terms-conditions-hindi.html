@@ -2,295 +2,205 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Terms & Conditions | Prakash Apartments</title>
-  <!-- Google Font: Inter + Hindi Font -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    /* ===== Theme Variables ===== */
     :root {
       --primary: #1a1a2e;
       --accent: #c9973a;
-      --accent-light: #f0d78c;
+      --accent-dark: #a67928;
       --gold-gradient: linear-gradient(135deg, #c9973a 0%, #e2b659 50%, #f0d78c 100%);
       --bg-primary: #ffffff;
       --bg-secondary: #f8f9fa;
       --bg-card: #ffffff;
       --text-primary: #1a1a2e;
       --text-secondary: #4a5568;
-      --text-muted: #718096;
-      --border-light: #e2e8f0;
-      --border-medium: #cbd5e0;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
-      --shadow-gold: 0 10px 30px rgba(201, 151, 58, 0.2);
-      --radius-sm: 12px;
+      --border-light: #eaeaea;
+      --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.04);
+      --shadow-modal: 0 -10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-gold: 0 8px 24px rgba(201, 151, 58, 0.25);
       --radius-md: 16px;
       --radius-lg: 24px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-pill: 99px;
+      --transition: all 0.25s ease;
     }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
+    /* ===== Mobile Reset ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100vw;
+      overflow-x: hidden;
+      background-color: var(--bg-primary);
       color: var(--text-primary);
-      line-height: 1.6;
-      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+    }
+
+    .app-container {
+      max-width: 500px; 
+      margin: 0 auto;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      width: 100%;
+      background: var(--bg-primary);
       position: relative;
     }
 
-    /* Premium Header */
-    .main-header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid var(--border-light);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .main-header.scrolled {
-      box-shadow: var(--shadow-md);
-      background: rgba(255, 255, 255, 0.98);
-    }
-
-    .nav-bar {
+    /* ===== Header ===== */
+    .app-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 0;
-      gap: 2rem;
+      padding: 1.25rem;
+      background: var(--bg-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-light);
     }
 
     .logo {
-      font-weight: 800;
-      font-size: 1.8rem;
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      transition: var(--transition);
-      flex-shrink: 0;
-    }
-
-    .logo:hover {
-      transform: translateY(-1px);
+      gap: 10px;
+      text-decoration: none;
     }
 
     .logo-icon {
-      width: 48px;
-      height: 48px;
+      width: 38px;
+      height: 38px;
       background: var(--gold-gradient);
-      border-radius: var(--radius-sm);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: var(--shadow-gold);
       color: white;
     }
 
     .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .logo-main {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: 800;
       color: var(--text-primary);
-      letter-spacing: -0.5px;
+      line-height: 1;
     }
 
     .logo-sub {
-      font-size: 0.7rem;
-      font-weight: 600;
+      display: block;
+      font-size: 0.65rem;
       color: var(--accent);
-      letter-spacing: 2px;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
     }
 
-    /* Navigation Links */
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      list-style: none;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: var(--transition);
-      font-size: 0.95rem;
-      padding: 0.5rem 0;
-      position: relative;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold-gradient);
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-
-    .nav-link:hover {
-      color: var(--text-primary);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .nav-link.premium {
-      background: var(--gold-gradient);
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      transition: var(--transition);
-      box-shadow: var(--shadow-gold);
-    }
-
-    .nav-link.premium:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(201, 151, 58, 0.3);
-    }
-
-    .nav-link.premium::after {
-      display: none;
-    }
-
-    /* Mobile Menu Button */
-    .mobile-menu-btn {
-      display: none;
+    .menu-btn {
       background: none;
       border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      z-index: 101;
-      flex-direction: column;
-      gap: 6px;
       width: 40px;
       height: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
       justify-content: center;
-      align-items: center;
+      gap: 5px;
+      cursor: pointer;
     }
 
-    .mobile-menu-btn span {
-      display: block;
-      width: 24px;
+    .menu-btn span {
       height: 2px;
       background: var(--text-primary);
-      transition: var(--transition);
       border-radius: 2px;
+      transition: var(--transition);
     }
+    .menu-btn span:nth-child(1) { width: 24px; }
+    .menu-btn span:nth-child(2) { width: 18px; }
+    .menu-btn span:nth-child(3) { width: 24px; }
 
-    .mobile-menu-btn.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    .mobile-menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .mobile-menu-btn.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
-    }
-
-    /* Terms Content */
-    .terms-section {
-      padding: 3rem 0 4rem;
+    /* ===== Main Content Area ===== */
+    .app-content {
+      padding: 1.5rem 1.25rem;
+      flex-grow: 1;
     }
 
     .terms-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .terms-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, rgba(201, 151, 58, 0.1), rgba(240, 215, 140, 0.1));
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201, 151, 58, 0.1);
       border: 1px solid rgba(201, 151, 58, 0.3);
-      padding: 0.6rem 1.8rem;
-      border-radius: 2rem;
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
     }
 
     .terms-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 2rem;
       font-weight: 800;
-      letter-spacing: -0.8px;
-      color: var(--text-primary);
-      margin-bottom: 0.8rem;
-      line-height: 1.3;
-      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
     }
 
     .terms-subtitle {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
-      font-weight: 400;
-      max-width: 700px;
-      margin: 0 auto;
-      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+      margin-bottom: 0.5rem;
     }
 
-    .terms-content {
-      max-width: 900px;
-      margin: 0 auto;
+    .lang-link {
+      display: inline-block;
+      color: var(--accent-dark);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ===== Terms Content Styling ===== */
+    .terms-card {
       background: var(--bg-card);
       border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 3rem;
-      box-shadow: var(--shadow-md);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-soft);
     }
 
     .terms-intro {
-      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid var(--border-light);
-      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-light);
+      line-height: 1.6;
+    }
+
+    .terms-intro strong {
+      color: var(--text-primary);
     }
 
     .terms-block {
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .terms-block:last-child {
@@ -298,416 +208,469 @@
     }
 
     .terms-block h2 {
-      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.75rem;
       display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      letter-spacing: -0.3px;
-      line-height: 1.6;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.3;
     }
 
-    .terms-block h2 .section-number {
+    .section-number {
       background: var(--gold-gradient);
       color: white;
-      width: 32px;
-      height: 32px;
+      width: 26px;
+      height: 26px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.8rem;
+      font-weight: 800;
       flex-shrink: 0;
-      margin-top: 2px;
-      font-family: 'Inter', sans-serif;
+      box-shadow: var(--shadow-gold);
     }
 
     .terms-block ul {
       list-style: none;
       padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
     }
 
     .terms-block ul li {
-      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
       position: relative;
-      padding-left: 1.8rem;
-      margin-bottom: 0.7rem;
+      padding-left: 1.25rem;
       color: var(--text-secondary);
-      line-height: 1.9;
-      font-size: 1rem;
+      line-height: 1.55;
+      font-size: 0.88rem;
     }
 
     .terms-block ul li::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 0.75rem;
-      width: 6px;
-      height: 6px;
+      left: 0.25rem;
+      top: 0.6rem;
+      width: 5px;
+      height: 5px;
       background: var(--accent);
       border-radius: 50%;
     }
 
     .terms-block ul li strong {
       color: var(--text-primary);
-      font-weight: 700;
+      font-weight: 600;
+    }
+
+    /* Strict Warning Highlight */
+    .strict-rule strong {
+      color: #dc2626;
+      background: rgba(220, 38, 38, 0.08);
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .nested-list {
+      margin-top: 0.4rem;
+      margin-bottom: 0.2rem;
+      gap: 0.4rem !important;
+    }
+
+    .nested-list li {
+      padding-left: 1rem !important;
+      font-size: 0.83rem !important;
+    }
+
+    .nested-list li::before {
+      background: transparent !important;
+      border: 1.5px solid var(--accent);
+      width: 4px !important;
+      height: 4px !important;
+      left: 0 !important;
     }
 
     .terms-footer-note {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 2px solid var(--border-light);
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed var(--border-light);
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
       font-style: italic;
-      line-height: 1.7;
-      font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
     }
 
-    /* Footer */
-    .footer {
-      margin-top: auto;
+    /* ===== Footer Section ===== */
+    .app-footer {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-light);
-      padding: 2rem 0;
+      padding: 2rem 1.25rem 1.5rem;
+      margin-top: 2.5rem;
     }
 
-    .footer-content {
+    .footer-section-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-contact-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-item {
+      display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--text-secondary);
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: 500;
-      transition: var(--transition);
-      font-size: 0.9rem;
     }
 
-    .footer-links a:hover {
+    .contact-item svg {
       color: var(--accent);
+      flex-shrink: 0;
     }
 
-    .copyright {
-      color: var(--text-muted);
+    .footer-legal-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      color: var(--text-primary);
+      text-decoration: none;
       font-size: 0.85rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-light);
     }
 
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .container {
-        padding: 0 1.5rem;
-      }
-      
-      .nav-links {
-        gap: 1.5rem;
-      }
+    .legal-link:last-child {
+      border-bottom: none;
     }
 
-    @media (max-width: 768px) {
-      .mobile-menu-btn {
-        display: flex;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 300px;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        padding: 6rem 2rem 2rem;
-        box-shadow: var(--shadow-lg);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 100;
-        gap: 1rem;
-        align-items: flex-start;
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .nav-link {
-        font-size: 1.1rem;
-        padding: 0.8rem 0;
-        width: 100%;
-      }
-
-      .nav-link.premium {
-        text-align: center;
-        width: 100%;
-      }
-
-      .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 99;
-      }
-
-      .overlay.active {
-        display: block;
-      }
-
-      .terms-content {
-        padding: 2rem;
-      }
-
-      .terms-section {
-        padding: 2rem 0 3rem;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        justify-content: center;
-      }
+    .legal-link svg {
+      color: var(--text-secondary);
     }
 
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 1rem;
-      }
+    .footer-bottom-text {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+    }
 
-      .terms-content {
-        padding: 1.5rem;
-      }
+    /* ===== Drawer Navigation ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 200;
+    }
 
-      .terms-block h2 {
-        font-size: 1.15rem;
-      }
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
 
-      .terms-block ul li {
-        font-size: 0.95rem;
-      }
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 280px;
+      background: var(--bg-card);
+      z-index: 300;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      padding: 5rem 1.5rem 2rem;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.05);
+    }
+
+    .nav-menu.active {
+      transform: translateX(0);
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 12px;
+      color: var(--text-primary);
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 8px;
+      background: var(--bg-secondary);
     }
   </style>
 </head>
 <body>
-  <!-- Overlay for mobile menu -->
-  <div class="overlay" id="overlay"></div>
 
-  <header class="main-header" id="header">
-    <div class="container nav-bar">
-      <a href="index.html" class="logo">
-        <div class="logo-icon">✦</div>
-        <div class="logo-text">
-          <span class="logo-main">Prakash</span>
-          <span class="logo-sub">Apartments</span>
-        </div>
-      </a>
-
-      <!-- Mobile Menu Button -->
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <!-- Navigation Links -->
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="archives.html" class="nav-link">Archives</a>
-        <a href="documents.html" class="nav-link">Documents</a>
-        <a href="additionals.html" class="nav-link premium">Additionals ✦</a>
+<div class="app-container">
+  
+  <!-- Header -->
+  <header class="app-header">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg>
       </div>
-    </div>
+      <div>
+        <div class="logo-text">Prakash</div>
+        <div class="logo-sub">Apartments</div>
+      </div>
+    </a>
+    <button class="menu-btn" id="openMenuBtn" aria-label="Toggle Navigation">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <main class="container">
-    <section class="terms-section">
-      <div class="terms-header">
-        <div class="terms-badge">✦ Legal Information</div>
-        <h1 class="terms-title">प्रकाश अपार्टमेंट्स – किरायेदारों के लिए नियम एवं शर्तें</h1>
-        <p class="terms-subtitle">प्रकाश अपार्टमेंट्स में फ्लैट किराये पर लेकर रहने वाले प्रत्येक किरायेदार को निम्नलिखित नियम एवं शर्तों का पालन करना होगा।</p>
+  <!-- Content -->
+  <main class="app-content">
+    
+    <div class="terms-header">
+      <div class="terms-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        Legal Information
+      </div>
+      <h1 class="terms-title">नियम एवं शर्तें</h1>
+      <p class="terms-subtitle">प्रकाश अपार्टमेंट्स के किरायेदारों के लिए।</p>
+      <a href="terms-conditions.html" class="lang-link">(Read in English)</a>
+    </div>
+
+    <div class="terms-card">
+      <p class="terms-intro">
+        <strong>प्रकाश अपार्टमेंट्स</strong> में कमरा या फ्लैट किराये पर लेकर रहने वाला प्रत्येक किरायेदार नीचे दिए गए नियमों और शर्तों का पालन करने के लिए सहमत होगा। इन नियमों का उद्देश्य सभी निवासियों के लिए सुरक्षित, साफ़-सुथरा और शांतिपूर्ण रहने का वातावरण बनाए रखना है।
+      </p>
+
+      <div class="terms-block">
+        <h2><span class="section-number">1</span> केवल रहने के लिए (Residential Use)</h2>
+        <ul>
+          <li>अपार्टमेंट केवल रहने <strong>(Residential Purpose)</strong> के लिए है।</li>
+          <li>यहाँ किसी भी प्रकार का <strong>Business, Office, Shop, Warehouse</strong> या अन्य <strong>Commercial Activity</strong> चलाना पूरी तरह प्रतिबंधित है।</li>
+        </ul>
       </div>
 
-      <div class="terms-content">
-        <div class="terms-block">
-          <h2><span class="section-number">1</span> केवल Residential Purpose</h2>
-          <ul>
-            <li>अपार्टमेंट केवल रहने (Residential Purpose) के लिए दिया जाता है।</li>
-            <li>किसी भी प्रकार का Business, Office, Shop, Warehouse या अन्य Commercial Activity अपार्टमेंट के अंदर चलाना सख्त मना है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">2</span> किराया (Rent Payment)</h2>
-          <ul>
-            <li>प्रत्येक माह का किराया अगले महीने शुरू होने से पहले या चल रहे महीने के अंतिम दिन तक जमा कर देना होगा।</li>
-            <li>अगले महीने की शुरुआत के बाद अधिकतम <strong>5 दिनों</strong> की Grace Period दी जाएगी।</li>
-            <li>5 दिन के बाद भी किराया जमा न होने पर <strong>₹200 प्रति दिन</strong> का Late Fine लगाया जाएगा।</li>
-            <li>लगातार किराया जमा न करने की स्थिति में, Rental Agreement तथा लागू कानूनों के अनुसार किरायेदारी समाप्त (Terminate) की जा सकती है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">3</span> शांति बनाए रखें</h2>
-          <ul>
-            <li>सभी किरायेदारों से अपेक्षा की जाती है कि वे अपार्टमेंट में शांति और अच्छा माहौल बनाए रखें।</li>
-            <li>तेज़ आवाज़ में Music बजाना, झगड़ा करना, गाली-गलौज करना, किसी को परेशान करना या ऐसा कोई भी कार्य जिससे अन्य निवासी असुविधा महसूस करें, पूरी तरह प्रतिबंधित है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">4</span> गैर-कानूनी गतिविधियाँ</h2>
-          <ul>
-            <li>अपार्टमेंट या उसके परिसर में किसी भी प्रकार की Illegal Activity सख्त मना है।</li>
-            <li>ऐसी स्थिति में Management संबंधित अधिकारियों को सूचना देने तथा आवश्यक कानूनी कार्रवाई करने का अधिकार रखता है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">5</span> Smoking, Alcohol एवं Drugs</h2>
-          <ul>
-            <li>Common Areas (जैसे सीढ़ियाँ, गलियारे आदि) में Smoking करना मना है।</li>
-            <li>किसी भी प्रकार के Illegal Drugs का उपयोग या रखना पूरी तरह प्रतिबंधित है।</li>
-            <li>Alcohol का सेवन इस प्रकार नहीं होना चाहिए जिससे अन्य निवासियों को परेशानी हो।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">6</span> साफ-सफाई एवं देखभाल</h2>
-          <ul>
-            <li>किरायेदार अपने अपार्टमेंट को साफ़ एवं स्वच्छ रखें।</li>
-            <li>अपार्टमेंट, फर्नीचर (यदि उपलब्ध हो), फिटिंग्स या Common Property को सामान्य उपयोग से अधिक नुकसान पहुँचाने पर उसकी भरपाई किरायेदार को करनी होगी।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">7</span> Visitors</h2>
-          <ul>
-            <li>Visitors का स्वागत है, लेकिन उन्हें भी अपार्टमेंट के नियमों का पालन करना होगा।</li>
-            <li>बिना अनुमति ऐसी Party, Gathering या अन्य कार्यक्रम आयोजित नहीं किए जा सकते जिससे अन्य निवासियों को असुविधा हो।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">8</span> सुरक्षा (Safety)</h2>
-          <ul>
-            <li>सभी किरायेदारों को सुरक्षा संबंधी नियमों का पालन करना होगा।</li>
-            <li>किसी भी प्रकार की ज्वलनशील (Flammable) या खतरनाक सामग्री अपार्टमेंट में रखना मना है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">9</span> Common Areas</h2>
-          <ul>
-            <li>गलियारे, सीढ़ियाँ, पार्किंग तथा अन्य Common Areas को साफ़ रखें।</li>
-            <li>इन स्थानों पर निजी सामान रखकर रास्ता अवरुद्ध न करें।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">10</span> संपत्ति का सम्मान</h2>
-          <ul>
-            <li>अपार्टमेंट, भवन, बिजली-पानी की व्यवस्था या अन्य Common Facilities को जानबूझकर नुकसान पहुँचाने पर मरम्मत का खर्च किरायेदार से लिया जाएगा तथा आवश्यक होने पर कानूनी कार्रवाई भी की जा सकती है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">11</span> किरायेदारी समाप्त करने की सूचना</h2>
-          <ul>
-            <li>यदि किसी कारणवश प्रकाश अपार्टमेंट्स ऑफिस किसी किरायेदार की किरायेदारी समाप्त (Revoke/Terminate) करना उचित समझता है, तो सामान्य परिस्थितियों में <strong>30 दिन पहले लिखित सूचना (Written Notice)</strong> दी जाएगी।</li>
-            <li>लेकिन गंभीर नियम उल्लंघन या लागू कानूनों के अंतर्गत आवश्यक परिस्थितियों में कम समय की Notice भी दी जा सकती है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">12</span> गंभीर नियम उल्लंघन</h2>
-          <ul>
-            <li>लड़ाई-झगड़ा, अन्य निवासियों को धमकाना, बार-बार विवाद करना, संपत्ति को नुकसान पहुँचाना या किसी भी प्रकार की Illegal Activity में शामिल होना गंभीर नियम उल्लंघन माना जाएगा।</li>
-            <li>ऐसी स्थिति में कानूनी कार्रवाई तथा किरायेदारी समाप्त करने की प्रक्रिया शुरू की जा सकती है।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">13</span> नियमों का पालन</h2>
-          <ul>
-            <li>समय-समय पर प्रकाश अपार्टमेंट्स ऑफिस द्वारा जारी किए गए सभी नियमों का पालन करना प्रत्येक किरायेदार के लिए आवश्यक होगा।</li>
-          </ul>
-        </div>
-
-        <div class="terms-block">
-          <h2><span class="section-number">14</span> नियमों में परिवर्तन</h2>
-          <ul>
-            <li>प्रकाश अपार्टमेंट्स ऑफिस आवश्यकता अनुसार इन नियमों एवं शर्तों में बदलाव करने का अधिकार रखता है। किसी भी नए नियम की जानकारी किरायेदारों को उचित माध्यम से दी जाएगी।</li>
-          </ul>
-        </div>
-
-        <div class="terms-footer-note">
-          <p> अंतिम अपडेट: 20 जुलाई 2026 • ये नियम किरायेदारों को पूर्व सूचना के साथ परिवर्तन के अधीन हैं।</p>
-        </div>
+      <div class="terms-block">
+        <h2><span class="section-number">2</span> किराया (Rent Payment)</h2>
+        <ul>
+          <li>हर महीने का किराया, अगले महीने के लिए, वर्तमान महीने की अंतिम तारीख तक जमा करना होगा।</li>
+          <li>नए महीने की शुरुआत से <strong>5 दिनों की अतिरिक्त छूट (Grace Period)</strong> दी जाएगी।</li>
+          <li>इसके बाद भी किराया जमा न होने पर <strong>₹100 प्रति दिन का Late Fee</strong> लगाया जाएगा।</li>
+          <li>लंबे समय तक किराया न देने पर, <strong>Rent Agreement</strong> और लागू कानून के अनुसार किरायेदारी समाप्त करने की प्रक्रिया शुरू की जा सकती है।</li>
+        </ul>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="copyright">© 2025 Prakash Apartments. Crafted with excellence.</div>
-      <div class="footer-links">
-        <a href="terms-conditions.html">Terms & Conditions</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="contact.html">Contact Concierge</a>
+      <div class="terms-block">
+        <h2><span class="section-number">3</span> रहने वाले लोगों और Guests की सीमा</h2>
+        <ul>
+          <li>24 घंटे से अधिक समय तक <strong>Guests</strong> के रहने पर नीचे दी गई अधिकतम सीमा लागू होगी:
+            <ul class="nested-list">
+              <li><strong>Single Room:</strong> अधिकतम 2 व्यक्ति</li>
+              <li><strong>1 BHK:</strong> अधिकतम 3 व्यक्ति</li>
+              <li><strong>2 BHK:</strong> अधिकतम 5 व्यक्ति</li>
+            </ul>
+          </li>
+          <li class="strict-rule"><strong>Management</strong> की पूर्व अनुमति के बिना इससे अधिक लोगों का रहना अनुमति नहीं है।</li>
+          <li class="strict-rule">नियम का उल्लंघन करने पर <strong>अतिरिक्त दैनिक शुल्क (Daily Charges)</strong> लिया जाएगा।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">4</span> High-Wattage Appliances और EV Charging</h2>
+        <ul>
+          <li>बिजली पर अधिक भार (Overload) और आग लगने के खतरे से बचने के लिए:</li>
+          <li><strong>Electric Induction Cooktop</strong> और <strong>Electric Room Heater</strong> का उपयोग पूरी तरह प्रतिबंधित है।</li>
+          <li>Apartment के बिजली कनेक्शन या Common Power Outlet से <strong>Electric Scooter</strong> या अन्य <strong>EV</strong> चार्ज करना भी सख्त मना है।</li>
+          <li class="strict-rule">इन नियमों का उल्लंघन करने पर <strong>आर्थिक जुर्माना (Penalty)</strong> लगाया जाएगा।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">5</span> संपत्ति की देखभाल (Property Care)</h2>
+        <ul>
+          <li>अपने कमरे या फ्लैट को हमेशा साफ़ और स्वच्छ रखें।</li>
+          <li>दीवारों, बिजली फिटिंग, दरवाज़ों, फर्नीचर या भवन की किसी भी संपत्ति को नुकसान पहुँचाना गंभीर नियम उल्लंघन माना जाएगा।</li>
+          <li class="strict-rule">ऐसे नुकसान की पूरी <strong>Repair/Replacement Cost</strong> तथा अतिरिक्त जुर्माना किरायेदार को देना होगा।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">6</span> शांतिपूर्ण वातावरण</h2>
+        <ul>
+          <li>सभी निवासी एक-दूसरे का सम्मान करें और शांतिपूर्ण माहौल बनाए रखें।</li>
+          <li>तेज़ आवाज़ में <strong>Music</strong>, अनावश्यक शोर, गाली-गलौज, झगड़ा, धमकी या दूसरों को परेशान करने वाली किसी भी गतिविधि की अनुमति नहीं है।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">7</span> अवैध गतिविधियाँ (Illegal Activities)</h2>
+        <ul>
+          <li>अपार्टमेंट या परिसर में किसी भी प्रकार की अवैध गतिविधि पूरी तरह प्रतिबंधित है।</li>
+          <li>ऐसा पाए जाने पर संबंधित अधिकारियों को सूचना दी जा सकती है और कानूनी कार्रवाई की जाएगी।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">8</span> Smoking, Alcohol और Drugs</h2>
+        <ul>
+          <li><strong>Common Areas</strong> में <strong>Smoking</strong> करना अनुमति नहीं है।</li>
+          <li>किसी भी प्रकार के <strong>Illegal Drugs</strong> रखना या उनका सेवन करना पूरी तरह प्रतिबंधित है।</li>
+          <li><strong>Alcohol</strong> का सेवन इस प्रकार नहीं होना चाहिए जिससे अन्य निवासियों को परेशानी हो।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">9</span> सुरक्षा एवं Common Areas</h2>
+        <ul>
+          <li><strong>Apartment Management</strong> द्वारा जारी सभी सुरक्षा नियमों का पालन करें।</li>
+          <li>ज्वलनशील (Flammable) या खतरनाक सामान कमरे में न रखें।</li>
+          <li><strong>Corridor, Staircase, Parking, Rooftop</strong> और अन्य <strong>Common Areas</strong> को साफ़ रखें।</li>
+          <li>इन स्थानों पर अपना निजी सामान छोड़कर रास्ता अवरुद्ध न करें।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">10</span> कमरा खाली करने की सूचना</h2>
+        <ul>
+          <li>यदि <strong>Management</strong> किसी किरायेदारी को समाप्त करने का निर्णय लेती है, तो सामान्यतः 30 दिन पहले लिखित सूचना (Written Notice) दी जाएगी।</li>
+          <li>हालाँकि, यदि गंभीर नियम उल्लंघन हुआ हो और <strong>Rent Agreement</strong> या लागू कानून इसकी अनुमति देता हो, तो कम समय का <strong>Notice</strong> भी दिया जा सकता है।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">11</span> गंभीर नियम उल्लंघन</h2>
+        <ul>
+          <li>यदि कोई किरायेदार झगड़ा करता है, अन्य लोगों को धमकाता है, बार-बार शांति भंग करता है, संपत्ति को नुकसान पहुँचाता है, या किसी अवैध गतिविधि में शामिल पाया जाता है, तो उसके विरुद्ध तुरंत अनुशासनात्मक कार्रवाई, कानूनी कार्यवाही तथा कानून के अनुसार किरायेदारी समाप्त की जा सकती है।</li>
+        </ul>
+      </div>
+
+      <div class="terms-block">
+        <h2><span class="section-number">12</span> नियमों में बदलाव</h2>
+        <ul>
+          <li>प्रकाश अपार्टमेंट्स आवश्यकता पड़ने पर इन नियमों एवं शर्तों में समय-समय पर बदलाव करने का अधिकार रखता है।</li>
+          <li>बदले हुए नियम सभी किरायेदारों को सूचित किए जाएंगे और सूचना के बाद से लागू होंगे।</li>
+        </ul>
+      </div>
+
+      <div class="terms-footer-note">
+        अंतिम अपडेट: जुलाई 2026 • इन नियमों में किरायेदारों को पूर्व सूचना देकर बदलाव किया जा सकता है।
       </div>
     </div>
+
+  </main>
+
+  <!-- Complete Footer -->
+  <footer class="app-footer">
+    
+    <!-- Contact Information -->
+    <div class="footer-section-title">Contact Us</div>
+    <div class="footer-contact-block">
+      <a href="tel:+917979701693" class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 7979701693
+      </a>
+      <a href="mailto:eypie.me@gmail.com" class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        eypie.me@gmail.com
+      </a>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nauwataand, Near Natraj Nagar, Barkagaon Daily Market, Barkagaon, Hazaribagh - 825311
+      </div>
+    </div>
+
+    <!-- Legal Links -->
+    <div class="footer-section-title">Policies & Terms</div>
+    <div class="footer-legal-block">
+      <a href="terms-conditions.html" class="legal-link">
+        Terms and Conditions
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="privacy-policy.html" class="legal-link">
+        Privacy Policy
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="feedback-form.html" class="legal-link">
+        Feedback Form
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom-text">
+      © 2026 Prakash Apartments. All rights reserved.
+    </div>
+
   </footer>
 
-  <script>
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+</div>
 
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-    const overlay = document.getElementById('overlay');
+<!-- Navigation Menu & Overlay -->
+<div class="overlay" id="overlay"></div>
 
-    function toggleMobileMenu() {
-      mobileMenuBtn.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    }
+<nav class="nav-menu" id="navMenu">
+  <a href="index.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Home
+  </a>
+  <a href="archives.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></svg>
+    Archives
+  </a>
+  <a href="documents.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+    Documents
+  </a>
+  <a href="additionals.html" class="nav-item" style="background: var(--gold-gradient); color: white;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Additionals
+  </a>
+</nav>
 
-    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-    overlay.addEventListener('click', toggleMobileMenu);
+<script>
+  const overlay = document.getElementById('overlay');
+  const navMenu = document.getElementById('navMenu');
+  const openMenuBtn = document.getElementById('openMenuBtn');
 
-    navLinks.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-          toggleMobileMenu();
-        }
-      });
-    });
-  </script>
+  function openNav() {
+    overlay.classList.add('active');
+    navMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    overlay.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openMenuBtn.addEventListener('click', openNav);
+  overlay.addEventListener('click', closeNav);
+</script>
 </body>
 </html>
